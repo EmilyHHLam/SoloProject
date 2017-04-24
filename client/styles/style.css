@@ -1,3 +1,6 @@
+body{
+  font-family: sans-serif, arial;
+}
 .instructions .container h1 {
     font-size: 24px;
     font-weight: 700;
@@ -40,12 +43,17 @@
     margin-left: 10px;
 }
 .title {
-  
+
 }
 .container {
   margin: 0 auto;
   background-color: #ffffff;
   color: black;
+}
+.title {
+    color: white;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px #000000;
 }
 #header-img {
   width: auto;
@@ -67,4 +75,17 @@
 .collapsing, .in {background-color: #f7f7f7;}
 .collapsing ul li a, .in ul li a {color: #666!important;}
 .collapsing ul li a:hover, .in ul li a:hover {color: #e24dae!important;}
+}
+#logout {
+  text-align: right;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #171717;
+    color: white;
+    font-size: 10px;
+    text-align: left;
 }
