@@ -1,14 +1,40 @@
 <div class="container">
     <div class="row">
-      <div class="col-xs-6">
-        <h1 id="welcome" class="lead">Welcome, {{userObject.userName}}!</h1>
+      <div class="col-xs-7">
+        <h1 class="lead">Welcome to Growth and Development Track</h1>
       </div>
-      <div class="col-xs-6" id="logout">
-        <button class="btn btn-default" ng-click="logout()">Log Out</button>
+      <div class="col-xs-5" id="logout"><span>{{userObject.userName}}</span>
+        <span><button class="btn btn-default" ng-click="logout()">Log Out</button>
+        </span>
       </div>
-
-
     </div>
+    <div >
+      <div class="col-xs-12">
+      <form ng-submit="addChild(child)">
 
+        <!-- <button ng-click="toggle()">Show user</button>
 
+        <p ng-show="myVar"> -->
+        First Name: <input type="text" ng-model="child.first"><br>
+        Last Name: <input type="text" ng-model="child.last"><br><br>
+        Birthday: <input type="text" ng-model="child.dob"><br><br>
+        Gender: <input type="radio" name="gender" value="boy" ng-model="child.gender">Boy
+                <input type="radio" name="gender" value="girl" ng-model="child.gender">Girl<br><br>
+        <input id="submit" type="submit" class="btn btn-primary">
+      <!-- </p> -->
+        </form>
+      </div>
+
+        <div ng-repeat="child in childrenList.children">
+          <div class="col-xs-12">
+            <div class="col-xs-2">{{child.first}} {{child.last}}</b></div>
+             <div class="col-xs-2">{{child.dob}}</div>
+              <div class="col-xs-2">{{child.gender}}</div>
+              <div class="col-xs-2">
+                <button type="button" ng-click="edit(child)">edit</button>
+              </div>
+              </div>
+
+          </div>
+      </div>
 </div>

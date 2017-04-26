@@ -16,7 +16,7 @@ myApp.config(['$routeProvider', '$locationProvider',
     })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
-      controller: 'UserController',
+      controller: 'ChildController',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();
