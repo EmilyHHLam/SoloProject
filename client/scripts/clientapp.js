@@ -16,9 +16,18 @@ myApp.config(['$routeProvider', '$locationProvider',
     })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
-      controller: 'ChildController',
+      controller: 'ChildrenController',
       resolve: {
         getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
+    .when('/child', {
+      templateUrl: '/views/templates/child.html',
+      controller: 'ChildController',
+      resolve: {
+        getuser : ['ChildService', function(ChildService){
           return UserService.getuser();
         }]
       }

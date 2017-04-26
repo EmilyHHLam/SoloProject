@@ -25,16 +25,18 @@
         </form>
       </div>
 
-        <div ng-repeat="child in childrenList.children">
-          <div class="col-xs-12">
-            <div class="col-xs-2">{{child.first}} {{child.last}}</b></div>
-             <div class="col-xs-2">{{child.dob}}</div>
+        <div ng-repeat="child in childrenList.children" >
+          <a ng-click="learnMore(child)" href="#/child">
+            <div class="col-xs-12">
+              <div class="col-xs-2">{{child._id}}</b></div><br />
+              <div class="col-xs-2">{{child.first}} {{child.last}}</b></div>
+              <div class="col-xs-2">{{child.dob}}</div>
               <div class="col-xs-2">{{child.gender}}</div>
-              <div class="col-xs-2">
+              <!-- <div class="col-xs-2">
                 <button type="button" ng-click="edit(child)">edit</button>
-              </div>
-              </div>
-
+              </div> -->
+            </div>
+          </a>
           </div>
       </div>
 </div>
