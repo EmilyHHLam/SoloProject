@@ -23,18 +23,18 @@ myApp.config(['$routeProvider', '$locationProvider',
         }]
       }
     })
-    .when('/child', {
-      templateUrl: '/views/templates/child.html',
+    .when('/info', {
+      templateUrl: '/views/templates/info.html',
       controller: 'ChildController',
       resolve: {
-        getuser : ['ChildService', function(ChildService){
+        getuser : ['UserService', function(UserService){
           return UserService.getuser();
         }]
       }
     })
-    .when('/info', {
+    .when('/info/:child_id/:name', {
       templateUrl: '/views/templates/info.html',
-      controller: 'InfoController',
+      controller: 'ChildController',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();

@@ -1,5 +1,27 @@
 <div class="container">
 <p>
-  child
+  child's Name
+  <form ng-submit="addInfo(person)">
+
+    <div id="myDropdown" class="dropdown-content" ng-model="person.eventtype">
+           <option value="1">Feeding</option>
+           <option value="2">Diaper Change</option>
+           <option value="3">Medical</option>
+           <option value="4">Dental</option>
+           <option value="5">Milestones</option>
+           <option value="6">Other</option>
+      </div>
+      <div>
+        Date: <input type="text" ng-model="person.date"><br>
+      </div>
+      <div>
+          Time: <input type="text" ng-model="person.time"><br><br>
+      </div>
+      <div>
+        Note: <input type="text" ng-model="person.note"><br><br>
+      </div>
+    
+    </form>
 </p>
+
 </div>

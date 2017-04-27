@@ -1,7 +1,5 @@
 var express = require('express');
 var router = express.Router();
-//var mongoose = require('mongoose');
-
 var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 var ChildSchema = new Schema({
@@ -11,17 +9,9 @@ var ChildSchema = new Schema({
   gender: String
 });
 
-var  EventSchema = new Schema({
-  date: String,
-  time: String,
-  childid: String
-
-});
-
 
 
 var Child = mongoose.model('child', ChildSchema, 'children');
-var Events = mongoose.model('events', EventSchema, 'events');
 
 
 router.get('/', function(req, res){
@@ -51,20 +41,7 @@ router.post('/', function(req, res) {
   });
 });
 
- router.get('/posts/:childId', function(req, res) {
-   console.log(req.params.childId);
-   var id = req.params.childId;
-      //Events.find({'childid': id}, function(err, posts) {
-      Events.find({'childid': id}, function(err, posts) {
-         //mongoose.model('posts').populate(posts, {path: 'childid'}, function(err, posts) {
-        if(err) {
-          console.log(err);
-        }
-//   //  mongoose.model('posts').populate(posts, {path: 'user'}, function(err, posts) {
-       res.send(posts);
-     //});
-     });
-  });
+
 
 
 module.exports= router;
