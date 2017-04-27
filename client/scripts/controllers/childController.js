@@ -14,10 +14,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
   $scope.eventsList = ChildService.eventsList;
   //delete event
   $scope.removeEvent = ChildService.removeEvent;
-
-
-  $scope.editEvent = function(evt) {
-    console.log('edit', evt);
-  };
+  //update event
+  $scope.editEvent = ChildService.editEvent;
 
 }]);

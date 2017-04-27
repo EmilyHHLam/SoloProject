@@ -37,16 +37,24 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
 
  //delete the event
   var removeEvent = function(evt) {
-    console.log('here is the factory',evt);
+
     $http.delete('/detail/' + evt._id).then(function(response) {
       console.log(response);
       getDetails();
     });
   };
 
+  var editEvent = function(evt) {
+    console.log('here is the factory',evt);
+    // $http.put('/detail/' + evt._id).then(function(response) {
+    //   console.log(response);
+    //   getDetails();
+    // });
+  };
 
 
   return {
+    editEvent: editEvent,
     removeEvent: removeEvent,
     getDetails: getDetails,
     eventsList: eventsList,
