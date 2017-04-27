@@ -19,6 +19,7 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
     getDetails(child.id);
     });
   };
+
 //get the event list of the child
  var getDetails = function(id) {
      console.log('id = ' + id);
@@ -27,17 +28,26 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
             child_id: id
         }
       };
-
       console.log('config', config);
       $http.get('/detail', config).then(function(response){
       console.log('events', response);
       eventsList.events = response.data;
-      // console.log('get events', childrenList );
      });
  };
 
+ //delete the event
+  var removeEvent = function(evt) {
+    console.log('here is the factory',evt);
+    $http.delete('/detail/' + evt._id).then(function(response) {
+      console.log(response);
+      getDetails();
+    });
+  };
+
+
 
   return {
+    removeEvent: removeEvent,
     getDetails: getDetails,
     eventsList: eventsList,
     addDetail: addDetail

@@ -9,7 +9,15 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     person.id = $routeParams.child_id;
     ChildService.addDetail(person);
   };
+  //get list of the events
   ChildService.getDetails();
   $scope.eventsList = ChildService.eventsList;
+  //delete event
+  $scope.removeEvent = ChildService.removeEvent;
+
+
+  $scope.editEvent = function(evt) {
+    console.log('edit', evt);
+  };
 
 }]);

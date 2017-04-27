@@ -29,6 +29,34 @@ router.get('/', function(req, res) {
 
  });
 
+ router.delete('/:id', function(req, res) {
+  var id = req.params.id;
+  console.log('id=' + id);
+  Event.findByIdAndRemove(id, function(err, deletedEvent){
+    if(err){
+      console.log(err);
+  res.sendStatus(200);
+  }
+
+  res.send(deletedEvent);
+  });
+});
+
+router.put('/:id', function(req, res, next) {
+    var id = req.params.id;
+    console.log('id'+ i + '/body' + req.body);
+    var event = new Event({
+    date: req.body.date,
+    time: req.body.time,
+    note: req.body.note,
+    etype: req.body.eventtype
+    });
+    Post.findByIdAndUpdate(id, function (err, editedEvent) {
+        if (err) return next(err);
+         res.send(editedEvent);
+    });
+});
+
 //Event.find({'childid': id}, function(err, posts) {
 //      Event.find({'child_id': id}, function(err, posts) {
 //         //mongoose.model('posts').populate(posts, {path: 'childid'}, function(err, posts) {
