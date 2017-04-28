@@ -25,7 +25,7 @@ router.get('/', function(req, res){
 });
 
 router.post('/', function(req, res) {
-  console.log('child app.js' + req.body);
+  //console.log('child app.js' + req.body);
   var child = new Child({
     first: req.body.first,
     last: req.body.last,
@@ -41,6 +41,31 @@ router.post('/', function(req, res) {
   });
 });
 
+
+// router.put('/:id', function(req, res, next) {
+router.put('/', function(req, res, next) {
+    var id = req.body._id;
+    console.log('id for edit' + id);
+
+    Child.findById(id, function (err, editchild) {
+       if (err) {
+         res.sendStatus(500);
+       }
+        else {
+          editchild.first = req.body.first;
+          editchild.last = req.body.last;
+          editchild.dob = req.body.dob;
+          editchild.gender = req.body.gender;
+          editchild.save(function (err, editchild) {
+            if (err) {
+              res.sendStatus(500);
+            }
+            res.send(editchild);
+          });
+        }
+
+    });
+});
 
 
 

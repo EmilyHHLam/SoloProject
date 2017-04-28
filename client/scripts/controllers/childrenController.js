@@ -14,6 +14,9 @@ var child = {};
   $scope.childrenList = UserService.childrenList;
   console.log('childrenlist from fac', UserService.childrenList);
 
-  
+  $scope.editaChild = function(child) {
+    console.log('here is a child to edit', child);
+    UserService.editaChild(child);
+  };
 
 }]);

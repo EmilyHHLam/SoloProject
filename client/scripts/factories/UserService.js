@@ -19,12 +19,22 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
    });
  };
 
+ var editaChild = function(child) {
+   console.log('child', child);
+   $http.put('/child', child).then(function(response) {
+     console.log(response);
+     getChildren();
+   });
+
+};
+
 
   return {
     userObject : userObject,
     addChild: addChild,
     getChildren: getChildren,
     childrenList: childrenList,
+    editaChild: editaChild,
     getuser : function(){
       $http.get('/user').then(function(response) {
           if(response.data.username) {
