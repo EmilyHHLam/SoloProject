@@ -16,20 +16,23 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
     console.log('child ' + child);
     $http.post('/detail', child).then(function(response) {
       console.log(response);
-    getDetails(child.id);
+    getDetails();
     });
   };
 
 //get the event list of the child
- var getDetails = function(id) {
-     console.log('id = ' + id);
-       var config = {
-        params: {
-            child_id: id
-        }
-      };
-      console.log('config', config);
-      $http.get('/detail', config).then(function(response){
+ var getDetails = function(childid) {
+   console.log('id' + childid);
+   var testid = '5900f07accf61604533a7233';
+      //
+      //  var config = {
+      //   params: {
+      //       child_id: id
+      //   }
+      // };
+      // console.log('config', config);
+      // console.log('test: ', testid);
+      $http.get('/detail/' + testid).then(function(response){
       console.log('events', response);
       eventsList.events = response.data;
      });
@@ -37,7 +40,6 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
 
  //delete the event
   var removeEvent = function(evt) {
-
     $http.delete('/detail/' + evt._id).then(function(response) {
       console.log(response);
       getDetails();

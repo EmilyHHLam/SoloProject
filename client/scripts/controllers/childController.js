@@ -1,7 +1,7 @@
 myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'ChildService', function($scope, $http, $location, $routeParams, ChildService) {
     console.log('Child Control sourced :');
     console.log($routeParams.name);
-    console.log($routeParams.child_id);
+    console.log('id' + $routeParams.child_id);
     $scope.name = $routeParams.name;
     var person = {};
     $scope.addDetail = function(person) {
@@ -10,7 +10,8 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     ChildService.addDetail(person);
   };
   //get list of the events
-  ChildService.getDetails();
+
+  ChildService.getDetails($routeParams.name);
   $scope.eventsList = ChildService.eventsList;
   //delete event
   $scope.removeEvent = ChildService.removeEvent;

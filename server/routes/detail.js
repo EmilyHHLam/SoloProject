@@ -19,10 +19,9 @@ var  EventSchema = new Schema({
 var Event = mongoose.model('events', EventSchema, 'events');
 
 
-router.get('/', function(req, res) {
-  console.log(req.params.child_id);
-  var id = req.params.childId;
-     Event.find({'child_id': '5900f07accf61604533a7233'}, function(err, eventList) {
+router.get('/:id', function(req, res) {
+  console.log('here: ' + req.params.id);
+     Event.find({'child_id': req.params.id}, function(err, eventList) {
       console.log('event in fac:', eventList);
       res.send(eventList);
     });
