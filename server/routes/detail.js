@@ -41,20 +41,30 @@ router.get('/:id', function(req, res) {
   });
 });
 
-router.put('/:id', function(req, res, next) {
-    var id = req.params.id;
-    console.log('id'+ i + '/body' + req.body);
-    var event = new Event({
-    date: req.body.date,
-    time: req.body.time,
-    note: req.body.note,
-    etype: req.body.eventtype
+router.put('/', function(req, res, next) {
+    var id = req.body._id;
+    console.log('id'+ id);
+
+    Event.findById(id, function (err, editevent) {
+      if (err) {
+        res.sendStatus(500);
+      }
+      else{
+          editevent.date = req.body.date || editevent.date;
+          editevent.time = req.body.time || editevent.time;
+          editevent.note = req.body.note || editevent.note;
+          editevent.etype = req.body.etype || editevent.etype ;
+          editevent.save(function (err, editevent) {
+            if (err) {
+              res.sendStatus(500);
+            }
+            res.send(editevent);
+          });
+        }
+
     });
-    Post.findByIdAndUpdate(id, function (err, editedEvent) {
-        if (err) return next(err);
-         res.send(editedEvent);
-    });
-});
+  });
+
 
 //Event.find({'childid': id}, function(err, posts) {
 //      Event.find({'child_id': id}, function(err, posts) {
@@ -72,7 +82,7 @@ router.put('/:id', function(req, res, next) {
      date: req.body.date,
      time: req.body.time,
      note: req.body.note,
-     etype: req.body.eventtype,
+     etype: req.body.etype,
      child_id: req.body.id
    });
    event.save(function(err, savedEvent) {

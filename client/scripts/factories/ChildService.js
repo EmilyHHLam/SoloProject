@@ -5,15 +5,14 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
       events: []
     };
 
-
   //--add the child data
   var addDetail = function(child) {
-    console.log('id', child.id);
-    console.log('date', child.date);
-    console.log('time', child.time);
-    console.log('note', child.note);
-    console.log('note', child.eventtype);
-    console.log('child ' + child);
+    // console.log('id', child.id);
+    // console.log('date', child.date);
+    // console.log('time', child.time);
+    // console.log('note', child.note);
+    // console.log('note', child.eventtype);
+    // console.log('child ' + child);
     $http.post('/detail', child).then(function(response) {
       console.log(response);
     getDetails();
@@ -47,11 +46,10 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
   };
 
   var editEvent = function(evt) {
-    console.log('here is the factory',evt);
-    // $http.put('/detail/' + evt._id).then(function(response) {
-    //   console.log(response);
-    //   getDetails();
-    // });
+    $http.put('/detail', evt).then(function(response) {
+      console.log(response);
+      getDetails();
+    });
   };
 
 
