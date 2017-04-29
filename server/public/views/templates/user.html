@@ -10,11 +10,11 @@
     </div>
     <div >
       <div class="col-xs-12">
-      <form ng-submit="addChild(child)">
+      <!-- <div class = "row">
+        <img class="newbaby" ng-click ="showForm = !showForm" src="views/images/newbaby.png" />
+      </div> -->
+      <form ng-class="{'vis': showForm}" ng-submit="addChild(child)">
 
-        <!-- <button ng-click="toggle()">Show user</button>
-
-        <p ng-show="myVar"> -->
         First Name: <input type="text" ng-model="child.first"><br>
         Last Name: <input type="text" ng-model="child.last"><br><br>
         Birthday: <input type="text" ng-model="child.dob"><br><br>

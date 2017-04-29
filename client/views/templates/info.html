@@ -1,26 +1,25 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-3">
-      <img src="" />
-    </div>
+
     <div class="col-xs-3">
       {{name}}
     </div>
   </div>
 
-
-  <form ng-submit="addDetail(person)">
+<button class="btn btn-primary btn-lg" ng-click="addDetail()">Add a Event</button>
+  <!-- <form ng-submit="addDetail(person)">
     <div class="col-xs-12">
     <div id="myDropdown" class="dropdown-content" >
     Type:<select name="mydropdown" ng-model="person.etype">
            <option value="" disabled="disabled" selected="selected">Please select a name</option>
-           <option value="1">Feeding</option>
-           <option value="2">Diaper Change</option>
-           <option value="3">Medical</option>
-           <option value="4">Dental</option>
-           <option value="5">Milestones</option>
-           <option value="6">Other</option>
+           <option value="feeding">Feeding</option>
+           <option value="diaper">Diaper Change</option>
+           <option value="medical">Medical</option>
+           <option value="dental">Dental</option>
+           <option value="milestone">Milestones</option>
+           <option value="metrics">Metrics</option>
+           <option value="other">Other</option>
       </select>
       </div>
       <div>
@@ -35,7 +34,7 @@
       </div>
         <input id="submit" type="submit" class="btn btn-primary">
 
-    </form>
+    </form> -->
     </div>
     <div class="row" ng-repeat="event in eventsList.events" >
       <div class="col-xs-12">

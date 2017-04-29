@@ -7,7 +7,7 @@ var  EventSchema = new Schema({
   date: Date,
   time: String,
   note: String,
-  etype: Number,
+  etype: String,
   // child_id: {
   //   type: Schema.Types.Object,
   //   ref: 'children'

@@ -9,7 +9,7 @@ var child = {};
     console.log('dob' + child.dob);
     console.log('gender' + child.gender);
     UserService.addChild(child);
-
+    $scope.model = {};
   };
   UserService.getChildren();
   $scope.childrenList = UserService.childrenList;

@@ -7,31 +7,16 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
 
   //--add the child data
   var addDetail = function(child) {
-    // console.log('id', child.id);
-    // console.log('date', child.date);
-    // console.log('time', child.time);
-    // console.log('note', child.note);
-    // console.log('note', child.eventtype);
-    // console.log('child ' + child);
     $http.post('/detail', child).then(function(response) {
-      console.log(response);
-    getDetails();
+      console.log('add response', child);
+    getDetails(child.id);
     });
   };
 
 //get the event list of the child
  var getDetails = function(childid) {
-   console.log('id' + childid);
-   var testid = '5900f07accf61604533a7233';
-      //
-      //  var config = {
-      //   params: {
-      //       child_id: id
-      //   }
-      // };
-      // console.log('config', config);
-      // console.log('test: ', testid);
-      $http.get('/detail/' + testid).then(function(response){
+      console.log('childid=' + childid);
+      $http.get('/detail/' + childid).then(function(response){
       console.log('events', response);
       eventsList.events = response.data;
      });
@@ -39,16 +24,19 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
 
  //delete the event
   var removeEvent = function(evt) {
+
     $http.delete('/detail/' + evt._id).then(function(response) {
       console.log(response);
-      getDetails();
+      console.log('removeevent', evt._id);
+      getDetails(evt.child_id);
     });
   };
 
   var editEvent = function(evt) {
+    console.log('editevent', evt);
     $http.put('/detail', evt).then(function(response) {
-      console.log(response);
-      getDetails();
+      console.log('edit', response);
+      getDetails(evt.child_id);
     });
   };
 
