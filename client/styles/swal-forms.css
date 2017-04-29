@@ -2,6 +2,8 @@
   padding-top: 3%;
   overflow: auto;
   height: auto;
+  z-index:9999;
+  position:fixed; 
 }
 
 .swal-form input.nice-input  {

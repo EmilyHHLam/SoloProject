@@ -43,7 +43,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       closeOnConfirm: true,
       formFields: [
         { id: 'etype', type: 'select', options: [
-            {value: 'other', text: 'Please select one'},
+            {value: 'empty', text: 'Please select one'},
             {value: 'feeding', text: 'Feeding'},
             {value: 'diaper Change', text: 'Diaper Change'},
             {value: 'medical', text: 'Medical'},
@@ -61,12 +61,17 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     }, function (isConfirm) {
       // do whatever you want with the form data
       var person = {};
+
       person = this.swalForm;
-      person.id = $routeParams.child_id;
-      console.log('obj', person);
-      console.log('edit id' + person.id);
-      ChildService.addDetail(person);
-    // { name: 'user name', nickname: 'what the user sends' }
+      console.log('add data =', person);
+      console.log('type', person.etype);
+      if (person.etype !== 'empty') {
+        person.id = $routeParams.child_id;
+        console.log('obj', person);
+        console.log('edit id' + person.id);
+        ChildService.addDetail(person);
+     }
+
     });
   };
 //==end of swal form==
