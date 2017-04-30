@@ -1,64 +1,47 @@
 
 <div class="container">
-  <div class="row">
-
-    <div class="col-xs-3">
-      {{name}}
-    </div>
-  </div>
-
-<button class="btn btn-primary btn-lg" ng-click="addDetail()">Add a Event</button>
-  <!-- <form ng-submit="addDetail(person)">
     <div class="col-xs-12">
-    <div id="myDropdown" class="dropdown-content" >
-    Type:<select name="mydropdown" ng-model="person.etype">
-           <option value="" disabled="disabled" selected="selected">Please select a name</option>
-           <option value="feeding">Feeding</option>
-           <option value="diaper">Diaper Change</option>
-           <option value="medical">Medical</option>
-           <option value="dental">Dental</option>
-           <option value="milestone">Milestones</option>
-           <option value="metrics">Metrics</option>
-           <option value="other">Other</option>
-      </select>
+      <div class="col-xs-6">
+        {{name | uppercase }}
+      </div>
+      <div class="col-xs-4">
+          <button class="btn btn-primary btn-lg" ng-click="addDetail()">Add an Event</button>
       </div>
       <div>
-        Date: <input type="text" ng-model="person.date"><br>
+        <hr>
       </div>
-      <div>
-          Time: <input type="text" ng-model="person.time"><br><br>
-      </div>
-      <div>
-        Note: <textarea name="name" rows="5" cols="20" ng-model="person.note"></textarea>
-
-      </div>
-        <input id="submit" type="submit" class="btn btn-primary">
-
-    </form> -->
     </div>
-    <div class="row" ng-repeat="event in eventsList.events" >
-      <div class="col-xs-12">
-        <div class="col-xs-1" ><input ng-show="editMode" ng-model="event.etype"></input></div>
-        <div class="col-xs-2" ><input ng-show="editMode" ng-model="event.date"></input></div>
-        <div class="col-xs-2" ><input ng-show="editMode" ng-model="event.time"></input></div>
-        <div class="col-xs-3" ><input ng-show="editMode" ng-model="event.note"></input></div>
+    <div class="col-xs-12">
+      <div class="input-group"> <span class="input-group-addon">Filter</span>
+        <input id="filter" type="text" class="form-control" ng-model="searchText" placeholder="Type here...">
+      </div>
+
+    <div class="row" ng-repeat="event in eventsList.events | filter:searchText" >
+      <div ng-show="editMode" class="step">
+        <div class="col-xs-12">EDIT BELOW: <br /></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.etype"></input></div>
+        <div class="col-xs-12" ><input ng-show="editMode" datetime="MM-dd-yyyy" ng-model="event.date"></input></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.time"></input></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.note"></input></div>
       </div>
      <div class="col-xs-12">
-        <div ng-hide="editMode" class="col-xs-1">{{event.etype}}</div>
+       <div>
+         <hr>
+       </div>
+        <div ng-hide="editMode" class="col-xs-12">{{event.etype | uppercase}}</div>
+
+      </div>
+      <div class="col-xs-12">
         <div ng-hide="editMode" class="col-xs-2">{{event.date | date : "M/d/yy" }}</div>
         <div ng-hide="editMode" class="col-xs-2">{{event.time}}</div>
-        <div ng-hide="editMode" class="col-xs-3">{{event.note}}</div>
+        <div ng-hide="editMode" class="col-xs-6">{{event.note}}</div>
 
-        <div class="col-xs-2 glyphicon glyphicon-remove" ng-click=removeEvent(event)></div>
-        <div class="col-xs-2 glyphicon glyphicon-edit" ng-click="editMode=true" ></div>
-        <div class= "glyphicon glyphicon-ok" ng-show="editMode" ng-click="editEvent(event); editMode=false"></div>
+        <div ng-hide="editMode" class="col-xs-1 glyphicon glyphicon-remove" ng-click=removeEvent(event)></div>
+        <div class="col-xs-1 glyphicon glyphicon-edit" ng-click="editMode=true" ></div>
+        <div class= "col-xs-1 glyphicon glyphicon-ok" ng-show="editMode" ng-click="editEvent(event); editMode=false"></div>
       </div>
 
-        <div style="height:30px">
 
-        </div>
       </div>
-      </a>
+
   </div>
-
-</div>

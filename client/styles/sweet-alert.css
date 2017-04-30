@@ -14,14 +14,14 @@ body.stop-scrolling {
   top: 0;
   bottom: 0;
   display: none;
-  z-index: 1; }
+  z-index: 10000; }
 
 .sweet-alert {
   overflow: auto !important;
   background-color: white;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   width: 478px;
-  /*padding: 17px;*/
+  padding: 17px;
   border-radius: 5px;
   text-align: center;
   position: fixed;
@@ -30,9 +30,7 @@ body.stop-scrolling {
   max-height: 70%;
   overflow: hidden;
   display: none;
-  z-index: 1;
-  /*z-index: 99999; */
-}
+  z-index: 99999; }
   @media all and (max-width: 540px) {
     .sweet-alert {
       width: auto;
@@ -111,7 +109,7 @@ body.stop-scrolling {
       background-color: #f06e57;
       border-radius: 3px;
       position: absolute;
-      top: 100%;
+      top: 50%;
       margin-top: -4px;
       left: 50%;
       margin-left: -9px; }

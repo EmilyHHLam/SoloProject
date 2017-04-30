@@ -21,29 +21,28 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
   $scope.removeEvent = function(evt) {
     swal({
       title: "Are you sure?",
-      text: "You will not be able to recover this imaginary file!",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#DD6B55",
-      confirmButtonText: "Yes, delete it!",
+      confirmButtonText: "Delete It!",
       closeOnConfirm: false
     },
     function(){
-      swal("Deleted!", "Your imaginary file has been deleted.", "success");
+      swal("Deleted!", "Your event has been deleted.", "success");
       ChildService.removeEvent(evt);
     });
   };
 
   $scope.addDetail = function() {
     swal.withForm({
-      title: 'Add',
+      title: 'Add an Event',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: 'Get form data!',
+      confirmButtonText: 'Add Data',
       closeOnConfirm: true,
       formFields: [
-        { id: 'etype', type: 'select', options: [
-            {value: 'empty', text: 'Please select one'},
+        { id: 'etype', type: 'select', required: true, options: [
+            {value: '', text: 'Please select one'},
             {value: 'feeding', text: 'Feeding'},
             {value: 'diaper Change', text: 'Diaper Change'},
             {value: 'medical', text: 'Medical'},
@@ -52,16 +51,16 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
             {value: 'metrics', text: 'Metrics'},
             {value: 'other', text: 'Other'}
         ]},
-        { id: 'date', placeholder: 'Date' },
-        { id: 'time', placeholder: 'Time' },
-        { id: 'note', type: 'textarea' }
+        { id: 'date', placeholder: 'Date', required: true},
+        { id: 'time', placeholder: 'Time', required: true },
+        { id: 'note', type: 'textarea', required: true }
 
 
       ]
-    }, function (isConfirm) {
-      // do whatever you want with the form data
-      var person = {};
+    },
 
+    function (isConfirm) {
+      var person = {};
       person = this.swalForm;
       console.log('add data =', person);
       console.log('type', person.etype);
@@ -72,7 +71,8 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
         ChildService.addDetail(person);
      }
 
-    });
+    }
+  );
   };
 //==end of swal form==
 }]);

@@ -18,16 +18,14 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
     console.log('get a child', childrenList );
    });
  };
-
+//edit that child
  var editaChild = function(child) {
    console.log('child', child);
    $http.put('/child', child).then(function(response) {
      console.log(response);
      getChildren();
    });
-
 };
-
 
   return {
     userObject : userObject,

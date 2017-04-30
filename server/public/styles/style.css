@@ -6,6 +6,13 @@ body{
   display: none;
 }
 
+.step {
+    display: inline-block;
+    width:200px;
+    height:150px;
+    border: 1px solid red;
+}
+
 .instructions .container h1 {
     font-size: 24px;
     font-weight: 700;
