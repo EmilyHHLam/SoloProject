@@ -1,22 +1,3 @@
-body{
-  font-family: sans-serif, arial;
-}
-/*show and hide image*/
-.vis {
-  display: none;
-}
-.babyimg {
-  width: 100px;
-  height: auto;
-}
-
-.step {
-    display: inline-block;
-    width:200px;
-    height:150px;
-    border: 1px solid red;
-}
-
 .instructions .container h1 {
     font-size: 24px;
     font-weight: 700;
@@ -59,15 +40,27 @@ body{
     margin-left: 10px;
 }
 
+
+
+#logout {
+  text-align: right;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #171717;
+    color: white;
+    font-size: 10px;
+    text-align: left;
+}
+
 .container {
   margin: 0 auto;
   background-color: #ffffff;
   color: black;
-}
-.title {
-    color: white;
-    font-size: 30px;
-    /*text-shadow: 2px 2px 4px #000000;*/
 }
 #header-img {
   width: auto;
@@ -76,9 +69,26 @@ body{
   max-height: 200px;
   float: right;
 }
+
 .headpic {
   background-color: white;
 }
+.btn-lg, .btn-group-lg > .btn {
+  float: right;
+}
+
+.babyimg {
+  width: 100px;
+  height: auto;
+}
+
+.step {
+    display: inline-block;
+    width:200px;
+    height:150px;
+    border: 1px solid red;
+}
+
 .navbar {background-color: #87CEEB;}
 /*.navbar {background-color: #ffffff;}*/
 .navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {color: #e24dae;}
@@ -89,17 +99,4 @@ body{
 .collapsing, .in {background-color: #f7f7f7;}
 .collapsing ul li a, .in ul li a {color: #666!important;}
 .collapsing ul li a:hover, .in ul li a:hover {color: #e24dae!important;}
-}
-#logout {
-  text-align: right;
-}
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 30px;
-    background-color: #171717;
-    color: white;
-    font-size: 10px;
-    text-align: left;
 }
