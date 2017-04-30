@@ -82,6 +82,13 @@
   height: auto;
 }
 
+.titleImg {
+  width:100px;
+  height: auto;
+  position: absolute;
+  top: -40px;
+}
+
 .step {
     display: inline-block;
     width:200px;
@@ -90,7 +97,6 @@
 }
 
 .navbar {background-color: #87CEEB;}
-/*.navbar {background-color: #ffffff;}*/
 .navbar-default .navbar-nav > li > a, .navbar-default .navbar-brand {color: #e24dae;}
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {color: #e24dae; background-color: #b27677;}

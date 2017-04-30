@@ -3,6 +3,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     // console.log($routeParams.name);
     // console.log('id' + $routeParams.child_id);
     $scope.name = $routeParams.name;
+    var childName = $routeParams.name;
     if ($routeParams.gender == "boy") {
       $scope.imgLoad = 'views/images/boy.png';
     }else {
@@ -33,6 +34,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     });
   };
 
+
   $scope.addDetail = function() {
     swal.withForm({
       title: 'Add an Event',
@@ -60,6 +62,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     },
 
     function (isConfirm) {
+      if (isConfirm === true) {
       var person = {};
       person = this.swalForm;
       console.log('add data =', person);
@@ -70,8 +73,9 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
         console.log('edit id' + person.id);
         ChildService.addDetail(person);
      }
-
     }
+    }
+    
   );
   };
 //==end of swal form==

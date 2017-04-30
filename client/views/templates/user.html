@@ -10,14 +10,7 @@
     </div>
     <div >
       <div class="col-xs-12">
-      <form ng-submit="addChild(child)">
-        First Name: <input type="text" ng-model="child.first"><br>
-        Last Name: <input type="text" ng-model="child.last"><br><br>
-        Birthday: <input type="text" ng-model="child.dob"><br><br>
-        Gender: <input type="radio" name="gender" value="boy" ng-model="child.gender">Boy
-                <input type="radio" name="gender" value="girl" ng-model="child.gender">Girl<br><br>
-        <input id="submit" type="submit" class="btn btn-primary">
-        </form>
+          <button class="btn btn-primary btn-lg" ng-click="addChild()">Add a Child</button>
       </div>
         <div ng-repeat="child in childrenList.children" >
             <div class="col-xs-12">
