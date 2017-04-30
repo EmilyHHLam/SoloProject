@@ -3,15 +3,15 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     // console.log($routeParams.name);
     // console.log('id' + $routeParams.child_id);
     $scope.name = $routeParams.name;
+    if ($routeParams.gender == "boy") {
+      $scope.imgLoad = 'views/images/boy.png';
+    }else {
+      $scope.imgLoad = 'views/images/girl.png';
+    }
 
-  //   $scope.addDetail = function(person) {
-  //   person.id = $routeParams.child_id;
-  //   ChildService.addDetail(person);
-  // };
+
   //get list of the events
-
   ChildService.getDetails($routeParams.child_id);
-
   $scope.eventsList = ChildService.eventsList;
 
   //update event

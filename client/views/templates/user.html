@@ -10,23 +10,18 @@
     </div>
     <div >
       <div class="col-xs-12">
-      <!-- <div class = "row">
-        <img class="newbaby" ng-click ="showForm = !showForm" src="views/images/newbaby.png" />
-      </div> -->
-      <form ng-class="{'vis': showForm}" ng-submit="addChild(child)">
-
+      <form ng-submit="addChild(child)">
         First Name: <input type="text" ng-model="child.first"><br>
         Last Name: <input type="text" ng-model="child.last"><br><br>
         Birthday: <input type="text" ng-model="child.dob"><br><br>
         Gender: <input type="radio" name="gender" value="boy" ng-model="child.gender">Boy
                 <input type="radio" name="gender" value="girl" ng-model="child.gender">Girl<br><br>
         <input id="submit" type="submit" class="btn btn-primary">
-      <!-- </p> -->
         </form>
       </div>
         <div ng-repeat="child in childrenList.children" >
             <div class="col-xs-12">
-              <a href="#/info/{{child._id}}/{{child.first}}" >
+              <a href="#/info/{{child._id}}/{{child.first}}/{{child.gender}}" >
               <div ng-hide="editMode" class="col-xs-4">{{child.first}} {{child.last}}</b></div>
               <div ng-hide="editMode" class="col-xs-4">{{child.dob | date: "MMM d, yyyy" }}</div>
               <div ng-hide="editMode" class="col-xs-2">{{child.gender}}</div>

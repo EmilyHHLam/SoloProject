@@ -32,7 +32,7 @@ myApp.config(['$routeProvider', '$locationProvider',
         }]
       }
     })
-    .when('/info/:child_id/:name', {
+    .when('/info/:child_id/:name/:gender', {
       templateUrl: '/views/templates/info.html',
       controller: 'ChildController',
       resolve: {

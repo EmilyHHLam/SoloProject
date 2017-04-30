@@ -5,6 +5,10 @@ body{
 .vis {
   display: none;
 }
+.babyimg {
+  width: 100px;
+  height: auto;
+}
 
 .step {
     display: inline-block;
