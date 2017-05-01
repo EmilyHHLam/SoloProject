@@ -14,13 +14,13 @@
     </div>
     <div class="col-xs-12">
       <div class="input-group"> <span class="input-group-addon">Filter</span>
-        <input id="filter" type="text" class="form-control" ng-model="searchText" placeholder="Type here...">
+        <input type="text" class="form-control" ng-model="search.etype" placeholder="Type event here...">
       </div>
       total lead items: {{eventsList.events.length}}
       <div>
         <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit" class="pagination"previous-text="" next-text=""></pagination>
       </div>
-    <div class="row" ng-repeat="event in eventsList.events | filter:searchText | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" >
+    <div class="row" ng-repeat="event in filtered = eventsList.events | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" >
       <div ng-show="editMode" class="step">
         <div class="col-xs-12">EDIT BELOW: <br /></div>
         <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.etype"></input></div>

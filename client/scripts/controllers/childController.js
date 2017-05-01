@@ -84,39 +84,43 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
 //pagination
 $scope.entryLimit = 2;
 $scope.currentPage = 0;
-  ///can't get the lenth of the array back, line 87 and 122
+
 console.log('length=', $scope.eventsList.events.length);
 $scope.totalLeadItems = $scope.eventsList.events.length;
 
-$scope.range = function() {
-  var rangeSize = 3;
-  var ps = [];
-  var start;
+  $scope.range = function() {
+    var rangeSize = 3;
+    var ps = [];
+    var start;
 
-  start = $scope.currentPage;
-  if ( start > $scope.pageCount()-rangeSize ) {
-    start = $scope.pageCount()-rangeSize+1;
-  }
-};
+    start = $scope.currentPage;
+    if ( start > $scope.pageCount()-rangeSize ) {
+      start = $scope.pageCount()-rangeSize+1;
+    }
+    for (var i=start; i<start+rangeSize; i++) {
+      ps.push(i);
+    }
+    return ps;
+  };
 
-$scope.prevPage = function() {
-  if ($scope.currentPage > 0) {
-    $scope.currentPage--;
-  }
-};
-$scope.pageCount = function() {
-  return Math.ceil($scope.totalItems / $scope.entryLimit)-1;
-};
+  $scope.prevPage = function() {
+      if ($scope.currentPage > 0) {
+        $scope.currentPage--;
+      }
+    };
+    $scope.pageCount = function() {
+      return Math.ceil($scope.totalItems / $scope.entryLimit)-1;
+  };
 
-$scope.nextPage = function() {
-  if ($scope.currentPage < $scope.pageCount()) {
-    $scope.currentPage++;
-  }
-};
+  $scope.nextPage = function() {
+    if ($scope.currentPage < $scope.pageCount()) {
+      $scope.currentPage++;
+    }
+  };
 
-$scope.setPage = function(n) {
-  $scope.currentPage = 0;
-};
+  $scope.setPage = function(n) {
+    $scope.currentPage = 0;
+  };
 // $watch search to update pagination
 $scope.$watch('search', function (newVal, oldVal) {
     $scope.filtered = filterFilter($scope.eventsList.events, newVal);

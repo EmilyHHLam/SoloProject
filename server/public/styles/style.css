@@ -88,6 +88,11 @@
   position: absolute;
   top: -40px;
 }
+.title {
+  color: white
+  padding-top: 20px;
+  font-size: 20px;
+}
 
 .step {
     display: inline-block;

@@ -8,10 +8,6 @@ var  EventSchema = new Schema({
   time: String,
   note: String,
   etype: String,
-  // child_id: {
-  //   type: Schema.Types.Object,
-  //   ref: 'children'
-  // }
   child_id: String
 
 });
@@ -20,9 +16,9 @@ var Event = mongoose.model('events', EventSchema, 'events');
 
 
 router.get('/:id', function(req, res) {
-  console.log('here: ' + req.params.id);
+  // console.log('here: ' + req.params.id);
      Event.find({'child_id': req.params.id}, function(err, eventList) {
-      console.log('event in fac:', eventList);
+      // console.log('event in fac:', eventList);
       res.send(eventList);
     });
 
@@ -30,7 +26,7 @@ router.get('/:id', function(req, res) {
 
  router.delete('/:id', function(req, res) {
   var id = req.params.id;
-  console.log('id=' + id);
+  // console.log('id=' + id);
   Event.findByIdAndRemove(id, function(err, deletedEvent){
     if(err){
       console.log(err);
@@ -43,7 +39,7 @@ router.get('/:id', function(req, res) {
 
 router.put('/', function(req, res, next) {
     var id = req.body._id;
-    console.log('id'+ id);
+    // console.log('id'+ id);
 
     Event.findById(id, function (err, editevent) {
       if (err) {
@@ -66,18 +62,8 @@ router.put('/', function(req, res, next) {
   });
 
 
-//Event.find({'childid': id}, function(err, posts) {
-//      Event.find({'child_id': id}, function(err, posts) {
-//         //mongoose.model('posts').populate(posts, {path: 'childid'}, function(err, posts) {
-//       //  if(err) {
-//       //    console.log(err);
-//       //  }
-// //   //  mongoose.model('posts').populate(posts, {path: 'user'}, function(err, posts) {
-//       res.send(posts);
-//});
-
  router.post('/', function(req, res) {
-   console.log('child in details' + req.body);
+  //  console.log('child in details' + req.body);
    var event = new Event({
      date: req.body.date,
      time: req.body.time,

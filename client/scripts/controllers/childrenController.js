@@ -8,7 +8,7 @@ var child = {};
   //console.log('childrenlist from fac', UserService.childrenList);
 
   $scope.editaChild = function(child) {
-    console.log('here is a child to edit', child);
+    // console.log('here is a child to edit', child);
     UserService.editaChild(child);
   };
 
@@ -34,7 +34,7 @@ var child = {};
       if (isConfirm === true) {
 
       child = this.swalForm;
-      console.log('add data =', child);
+      // console.log('add data =', child);
       UserService.addChild(child);
 
     }

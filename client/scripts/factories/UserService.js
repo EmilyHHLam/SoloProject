@@ -7,7 +7,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
    var getChildren = function() {
     $http.get('/child').then(function(response){
       childrenList.children = response.data;
-      console.log('get a child', childrenList );
+      // console.log('get a child', childrenList );
      });
    };
    //--add the child data
@@ -20,7 +20,7 @@ myApp.factory('UserService', ['$http', '$location', function($http, $location){
    };
   //edit that child
    var editaChild = function(child) {
-     console.log('child', child);
+    //  console.log('child', child);
      $http.put('/child', child).then(function(response) {
        console.log(response);
        getChildren();
