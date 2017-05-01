@@ -1,4 +1,4 @@
-myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'ChildService', function($scope, $http, $location, $routeParams, ChildService) {
+myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'filterFilter', 'ChildService' , function($scope, $http, $location, $routeParams, filterFilter, ChildService) {
     console.log('Child Control sourced :');
     // console.log($routeParams.name);
     // console.log('id' + $routeParams.child_id);
@@ -14,6 +14,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
   //get list of the events
   ChildService.getDetails($routeParams.child_id);
   $scope.eventsList = ChildService.eventsList;
+
 
   //update event
   $scope.editEvent = ChildService.editEvent;
@@ -75,8 +76,54 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
      }
     }
     }
-    
+
+
   );
   };
 //==end of swal form==
+//pagination
+$scope.entryLimit = 2;
+$scope.currentPage = 0;
+  ///can't get the lenth of the array back, line 87 and 122
+console.log('length=', $scope.eventsList.events.length);
+$scope.totalLeadItems = $scope.eventsList.events.length;
+
+$scope.range = function() {
+  var rangeSize = 3;
+  var ps = [];
+  var start;
+
+  start = $scope.currentPage;
+  if ( start > $scope.pageCount()-rangeSize ) {
+    start = $scope.pageCount()-rangeSize+1;
+  }
+};
+
+$scope.prevPage = function() {
+  if ($scope.currentPage > 0) {
+    $scope.currentPage--;
+  }
+};
+$scope.pageCount = function() {
+  return Math.ceil($scope.totalItems / $scope.entryLimit)-1;
+};
+
+$scope.nextPage = function() {
+  if ($scope.currentPage < $scope.pageCount()) {
+    $scope.currentPage++;
+  }
+};
+
+$scope.setPage = function(n) {
+  $scope.currentPage = 0;
+};
+// $watch search to update pagination
+$scope.$watch('search', function (newVal, oldVal) {
+    $scope.filtered = filterFilter($scope.eventsList.events, newVal);
+    $scope.totalItems = $scope.filtered.length;
+    $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+    $scope.currentPage = 1;
+}, true);
+//end of pagination
+
 }]);

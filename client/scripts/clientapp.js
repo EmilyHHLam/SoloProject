@@ -1,4 +1,14 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ui.bootstrap']);
+//pagination
+myApp.filter('startFrom', function () {
+    return function (input, start) {
+        if (input) {
+            start = +start;
+            return input.slice(start);
+        }
+        return [];
+    };
+});
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider',

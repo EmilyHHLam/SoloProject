@@ -2,15 +2,7 @@ myApp.controller('ChildrenController', ['$scope', '$http', '$location', 'UserSer
 console.log('child sourced :');
 //$scope.children = UserService.children;
 var child = {};
-  // $scope.addChild = function(child) {
-  //   console.log('come here');
-  //   console.log('child first' + child.first);
-  //   console.log('child last' + child.last);
-  //   console.log('dob' + child.dob);
-  //   console.log('gender' + child.gender);
-  //   UserService.addChild(child);
-  //   $scope.model = {};
-  // };
+
   UserService.getChildren();
   $scope.childrenList = UserService.childrenList;
   //console.log('childrenlist from fac', UserService.childrenList);
@@ -22,7 +14,7 @@ var child = {};
 
   $scope.addChild = function() {
     swal.withForm({
-      title: 'Add an Event',
+      title: 'Add a New Baby',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
       confirmButtonText: 'Add Data',
