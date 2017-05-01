@@ -82,10 +82,18 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
   };
 //==end of swal form==
 //pagination
+$scope.search = {};
+
+  $scope.resetFilters = function () {
+      // needs to be a function or it won't trigger a $watch
+      $scope.search = {};
+  };
+
+
 $scope.entryLimit = 2;
 $scope.currentPage = 0;
 
-console.log('length=', $scope.eventsList.events.length);
+console.log('cout outside=', $scope.eventsList.events.length);
 $scope.totalLeadItems = $scope.eventsList.events.length;
 
   $scope.range = function() {
@@ -109,6 +117,7 @@ $scope.totalLeadItems = $scope.eventsList.events.length;
       }
     };
     $scope.pageCount = function() {
+      console.log('pageg count' + $scope.eventsList.events.length);
       return Math.ceil($scope.totalItems / $scope.entryLimit)-1;
   };
 
@@ -123,10 +132,16 @@ $scope.totalLeadItems = $scope.eventsList.events.length;
   };
 // $watch search to update pagination
 $scope.$watch('search', function (newVal, oldVal) {
+    $scope.totalItems =$scope.eventsList.events.length;
+
+    console.log('events =', $scope.totalItems);
     $scope.filtered = filterFilter($scope.eventsList.events, newVal);
     $scope.totalItems = $scope.filtered.length;
+    console.log('totalitems=', $scope.totalItems );
+    console.log('entrylimit=', $scope.entryLimit);
     $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
     $scope.currentPage = 1;
+    // $scope.totalItems =
 }, true);
 //end of pagination
 
