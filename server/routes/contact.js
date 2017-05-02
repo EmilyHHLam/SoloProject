@@ -37,7 +37,39 @@ router.get('/', function(req, res){
   });
 });
 
+router.delete('/:id', function(req, res) {
+  var id = req.params.id;
+  Contact.findByIdAndRemove(id, function(err, deletedContact){
+   if(err){
+     console.log(err);
+     res.sendStatus(200);
+   }
 
+   res.send(deletedContact);
+ });
+});
+//edit the contact
+router.put('/', function(req, res, next) {
+    var id = req.body._id;
+    Event.findById(id, function (err, editcontact) {
+      if (err) {
+        res.sendStatus(500);
+      }
+      else{
+          editcontact.date = req.body.date || editcontact.date;
+          editcontact.time = req.body.time || editcontact.time;
+          editcontact.note = req.body.note || editcontact.note;
+          editcontact.etype = req.body.etype || editcontact.etype ;
+          editcontact.save(function (err, editcontact) {
+            if (err) {
+              res.sendStatus(500);
+            }
+            res.send(editcontact);
+          });
+        }
+
+    });
+  });
 
 
 module.exports= router;

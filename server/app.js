@@ -68,7 +68,7 @@ mongoDB.on('error', function(err){
 });
 
 mongoDB.once('open', function(){
-   console.log("Connected to Mongo, meow!");
+   console.log("Connected to Mongo, hey Baby!");
 });
 
 // App Set //

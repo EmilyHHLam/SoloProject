@@ -5,6 +5,23 @@ myApp.controller('ContactController', ['$scope', '$http', '$location', '$routePa
     ContactService.getContacts();
     $scope.contactList = ContactService.contactList;
     console.log('contact', ContactService.contactList);
+    $scope.editContact = ContactService.editContact;
+
+    //delete event
+    $scope.removeContact = function(contact) {
+      swal({
+        title: "Are you sure?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Delete It!",
+        closeOnConfirm: false
+      },
+      function(){
+        swal("Deleted!", "Your contact has been deleted.", "success");
+        ContactService.removeContact(contact);
+      });
+    };
 
     $scope.addContact = function() {
       swal.withForm({
