@@ -13,6 +13,14 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     // $watch search to update pagination
     $scope.onEventComplete = function() {
       console.log('CALLBACK', $scope.eventsList.events.length);
+      $scope.isArrowShow = function(){
+        if ($scope.eventsList.events.length>$scope.entryLimit) {
+          return true;
+        }
+        else {
+          return false;
+        }
+      };
       $scope.$watch('search', function (newVal, oldVal) {
           $scope.totalItems =$scope.eventsList.events.length;
           $scope.filtered = filterFilter($scope.eventsList.events, newVal);
@@ -77,19 +85,12 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       if (isConfirm === true) {
       var person = {};
       person = this.swalForm;
-      console.log('add data =', person);
-      console.log('type', person.etype);
       if (person.etype !== 'empty') {
         person.id = $routeParams.child_id;
-        console.log('obj', person);
-        console.log('edit id' + person.id);
-        //ChildService.addDetail(person, $scope.onChildDataLoadComplete);
         ChildService.addDetail(person, $scope.onEventComplete) ;
+      }
      }
     }
-    }
-
-
   );
   };
 //==end of swal form==

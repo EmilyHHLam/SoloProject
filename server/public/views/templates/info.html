@@ -1,6 +1,6 @@
 
 <div class="container">
-    <div class="col-xs-12" style:"position: relative;">
+    <div class="col-xs-12" >
       <div class="col-xs-6" >
         <img class="babyimg" src={{imgLoad}} />
         {{name | uppercase }}
@@ -17,16 +17,17 @@
         <input type="text" class="form-control" ng-model="search.etype" placeholder="Type event here...">
       </div>
       total lead items: {{eventsList.events.length}}
-      <div>
+      <!--isArrowShow when the evenList.length > entryLimit-->
+      <div ng-show="isArrowShow()">
         <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit" class="pagination"previous-text="" next-text=""></pagination>
       </div>
     <div class="row" ng-repeat="event in filtered = eventsList.events | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" >
       <div ng-show="editMode" class="step">
         <div class="col-xs-12">EDIT BELOW: <br /></div>
-        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.etype"></input></div>
-        <div class="col-xs-12" ><input ng-show="editMode" datetime="MM-dd-yyyy" ng-model="event.date"></input></div>
-        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.time"></input></div>
-        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.note"></input></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.etype"></div>
+        <div class="col-xs-12" ><input ng-show="editMode" datetime="MM-dd-yyyy" ng-model="event.date"></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.time"></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.note"></div>
       </div>
      <div class="col-xs-12">
 
