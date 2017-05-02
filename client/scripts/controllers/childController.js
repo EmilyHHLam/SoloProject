@@ -10,11 +10,22 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       $scope.imgLoad = 'views/images/girl.png';
     }
 
-
+    // $watch search to update pagination
+    $scope.onEventComplete = function() {
+      console.log('CALLBACK', $scope.eventsList.events.length);
+      $scope.$watch('search', function (newVal, oldVal) {
+          $scope.totalItems =$scope.eventsList.events.length;
+          $scope.filtered = filterFilter($scope.eventsList.events, newVal);
+          $scope.totalItems = $scope.filtered.length;
+          $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
+          $scope.currentPage = 1;
+      }, true);
+    };
   //get list of the events
-  ChildService.getDetails($routeParams.child_id);
-  $scope.eventsList = ChildService.eventsList;
+  ChildService.getDetails($routeParams.child_id, $scope.onEventComplete);
 
+  //ChildService.getDetails($routeParams.child_id);
+  $scope.eventsList = ChildService.eventsList;
 
   //update event
   $scope.editEvent = ChildService.editEvent;
@@ -31,7 +42,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     },
     function(){
       swal("Deleted!", "Your event has been deleted.", "success");
-      ChildService.removeEvent(evt);
+      ChildService.removeEvent(evt, $scope.onEventComplete);
     });
   };
 
@@ -72,7 +83,8 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
         person.id = $routeParams.child_id;
         console.log('obj', person);
         console.log('edit id' + person.id);
-        ChildService.addDetail(person);
+        //ChildService.addDetail(person, $scope.onChildDataLoadComplete);
+        ChildService.addDetail(person, $scope.onEventComplete) ;
      }
     }
     }
@@ -90,10 +102,8 @@ $scope.search = {};
   };
 
 
-$scope.entryLimit = 2;
+$scope.entryLimit = 3;
 $scope.currentPage = 0;
-
-console.log('cout outside=', $scope.eventsList.events.length);
 $scope.totalLeadItems = $scope.eventsList.events.length;
 
   $scope.range = function() {
@@ -117,7 +127,6 @@ $scope.totalLeadItems = $scope.eventsList.events.length;
       }
     };
     $scope.pageCount = function() {
-      console.log('pageg count' + $scope.eventsList.events.length);
       return Math.ceil($scope.totalItems / $scope.entryLimit)-1;
   };
 
@@ -130,19 +139,7 @@ $scope.totalLeadItems = $scope.eventsList.events.length;
   $scope.setPage = function(n) {
     $scope.currentPage = 0;
   };
-// $watch search to update pagination
-$scope.$watch('search', function (newVal, oldVal) {
-    $scope.totalItems =$scope.eventsList.events.length;
 
-    console.log('events =', $scope.totalItems);
-    $scope.filtered = filterFilter($scope.eventsList.events, newVal);
-    $scope.totalItems = $scope.filtered.length;
-    console.log('totalitems=', $scope.totalItems );
-    console.log('entrylimit=', $scope.entryLimit);
-    $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
-    $scope.currentPage = 1;
-    // $scope.totalItems =
-}, true);
 //end of pagination
 
 }]);

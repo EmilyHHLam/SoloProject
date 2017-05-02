@@ -89,7 +89,7 @@ myApp.config(['$routeProvider', '$locationProvider',
     })
     .when('/contact', {
       templateUrl: '/views/templates/contact.html',
-      controller: 'InfoController',
+      controller: 'ContactController',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();

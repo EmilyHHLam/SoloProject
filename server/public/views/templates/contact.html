@@ -1,5 +1,34 @@
 <div class="container">
-<p>
-  contact
-</p>
+   List of contact information:<br />
+   <div class="col-xs-6 addButton">
+       <button class="btn btn-primary btn-lg" ng-click="addContact()">Add an Event</button>
+   </div>
+  <div class="row" ng-repeat="contact in contactList.lists">
+    <div ng-show="editMode" class="step">
+      <div class="col-xs-12">EDIT BELOW: <br /></div>
+      <div class="col-xs-12" ><input ng-show="editMode" ng-model="contact.name"></div>
+      <div class="col-xs-12" ><input ng-show="editMode" ng-model="contact.address"></div>
+      <div class="col-xs-12" ><input ng-show="editMode" ng-model="contact.phone"></div>
+      <div class="col-xs-12" ><input ng-show="editMode" ng-model="event.note"></div>
+    </div>
+   <div class="col-xs-12">
+     <div>
+       <hr>
+     </div>
+      <div ng-hide="editMode" class="col-xs-12">{{contact.name | uppercase}}</div>
+
+    </div>
+    <div class="col-xs-12">
+      <div ng-hide="editMode" class="col-xs-2">{{contact.adress }}</div>
+      <div ng-hide="editMode" class="col-xs-2">{{contact.phone}}</div>
+      <div ng-hide="editMode" class="col-xs-6">{{contact.note}}</div>
+
+      <div ng-hide="editMode" class="col-xs-1 glyphicon glyphicon-remove" ng-click=removeContact(contact)></div>
+      <div class="col-xs-1 glyphicon glyphicon-edit" ng-click="editMode=true" ></div>
+      <div class= "col-xs-1 glyphicon glyphicon-ok" ng-show="editMode" ng-click="editContact(contact); editMode=false"></div>
+    </div>
+
+
+    </div>
+
 </div>
