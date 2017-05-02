@@ -1,4 +1,14 @@
-var myApp = angular.module('myApp', ['ngRoute']);
+var myApp = angular.module('myApp', ['ngRoute', 'ui.bootstrap']);
+//pagination
+myApp.filter('startFrom', function () {
+    return function (input, start) {
+        if (input) {
+            start = +start;
+            return input.slice(start);
+        }
+        return [];
+    };
+});
 
 /// Routes ///
 myApp.config(['$routeProvider', '$locationProvider',
@@ -16,7 +26,7 @@ myApp.config(['$routeProvider', '$locationProvider',
     })
     .when('/user', {
       templateUrl: '/views/templates/user.html',
-      controller: 'UserController',
+      controller: 'ChildrenController',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();
@@ -25,7 +35,16 @@ myApp.config(['$routeProvider', '$locationProvider',
     })
     .when('/info', {
       templateUrl: '/views/templates/info.html',
-      controller: 'InfoController',
+      controller: 'ChildController',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
+    .when('/info/:child_id/:name/:gender', {
+      templateUrl: '/views/templates/info.html',
+      controller: 'ChildController',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();
@@ -70,7 +89,7 @@ myApp.config(['$routeProvider', '$locationProvider',
     })
     .when('/contact', {
       templateUrl: '/views/templates/contact.html',
-      controller: 'InfoController',
+      controller: 'ContactController',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();
