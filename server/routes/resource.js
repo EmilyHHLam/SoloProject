@@ -3,53 +3,53 @@ var router = express.Router();
 var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 
-var  EventSchema = new Schema({
-  date: Date,
-  time: String,
-  note: String,
-  etype: String,
-  child_id: String
+var  ResourceSchema = new Schema({
+  title: String,
+  link: String,
+  note: String
 
 });
 
-var Event = mongoose.model('events', EventSchema, 'events');
+var Resource = mongoose.model('resource', ResourceSchema, 'resource');
 
-
-router.get('/:id', function(req, res) {
-     Event.find({'child_id': req.params.id}, function(err, eventList) {
-      res.send(eventList);
-    });
-
- });
+router.get('/', function(req, res){
+  Resource.find({}, function(err, resources) {
+    if (err){
+      console.log('mongo error', err);
+      res.send(500);
+    }
+    res.send(resources);
+  });
+});
 
  router.delete('/:id', function(req, res) {
   var id = req.params.id;
-  Event.findByIdAndRemove(id, function(err, deletedEvent){
+  Resource.findByIdAndRemove(id, function(err, deletedResource){
     if(err){
       console.log(err);
   res.sendStatus(200);
   }
 
-  res.send(deletedEvent);
+  res.send(deletedResource);
   });
 });
 
 router.put('/', function(req, res, next) {
     var id = req.body._id;
-    Event.findById(id, function (err, editevent) {
+    Resource.findById(id, function (err, editresource) {
       if (err) {
         res.sendStatus(500);
       }
       else{
-          editevent.date = req.body.date || editevent.date;
-          editevent.time = req.body.time || editevent.time;
-          editevent.note = req.body.note || editevent.note;
-          editevent.etype = req.body.etype || editevent.etype ;
-          editevent.save(function (err, editevent) {
+          editresource.date = req.body.date || editresource.date;
+          editresource.time = req.body.time || editresource.time;
+          editresource.note = req.body.note || editresource.note;
+          editresource.etype = req.body.etype || editresource.etype ;
+          editresource.save(function (err, editresource) {
             if (err) {
               res.sendStatus(500);
             }
-            res.send(editevent);
+            res.send(editresource);
           });
         }
 
@@ -59,19 +59,17 @@ router.put('/', function(req, res, next) {
 
  router.post('/', function(req, res) {
   //  console.log('child in details' + req.body);
-   var event = new Event({
-     date: req.body.date,
-     time: req.body.time,
-     note: req.body.note,
-     etype: req.body.etype,
-     child_id: req.body.id
+   var resource = new Resource({
+     title: req.body.title,
+     link: req.body.link,
+     note: req.body.note
    });
-   event.save(function(err, savedEvent) {
+   resource.save(function(err, savedResource) {
      if(err) {
        console.log("mongo error" + err);
        res.sendStatus(500);
      }
-     res.send(savedEvent);
+     res.send(savedResource);
    });
  });
 

@@ -14,6 +14,7 @@ var register = require('./routes/register');
 var child = require('./routes/child');
 var detail = require('./routes/detail');
 var contact = require('./routes/contact');
+var resource = require('./routes/resource');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -41,6 +42,7 @@ app.use('/user', user);
 app.use('/child', child);
 app.use('/detail', detail);
 app.use('/contact', contact);
+app.use('/resource', resource);
 app.use('/', index);
 
 
