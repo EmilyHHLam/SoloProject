@@ -14,7 +14,7 @@ myApp.factory('ContactService', ['$http', '$location', '$route', function($http,
   var getContacts = function() {
     $http.get('/contact').then(function(response){
       console.log('response', response);
-      //contactList.lists = response.data;
+      contactList.lists = response.data;
 
     });
   };
