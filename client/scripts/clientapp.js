@@ -79,8 +79,8 @@ myApp.config(['$routeProvider', '$locationProvider',
       }
     })
     .when('/resources', {
-      templateUrl: '/views/templates/resources.html',
-      controller: 'InfoController',
+      templateUrl: '/views/templates/resource.html',
+      controller: 'ResourceController',
       resolve: {
         getuser : ['UserService', function(UserService){
           return UserService.getuser();

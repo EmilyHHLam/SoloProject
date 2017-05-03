@@ -16,9 +16,7 @@ var Event = mongoose.model('events', EventSchema, 'events');
 
 
 router.get('/:id', function(req, res) {
-  // console.log('here: ' + req.params.id);
      Event.find({'child_id': req.params.id}, function(err, eventList) {
-      // console.log('event in fac:', eventList);
       res.send(eventList);
     });
 
@@ -26,7 +24,6 @@ router.get('/:id', function(req, res) {
 
  router.delete('/:id', function(req, res) {
   var id = req.params.id;
-  // console.log('id=' + id);
   Event.findByIdAndRemove(id, function(err, deletedEvent){
     if(err){
       console.log(err);
@@ -39,8 +36,6 @@ router.get('/:id', function(req, res) {
 
 router.put('/', function(req, res, next) {
     var id = req.body._id;
-    // console.log('id'+ id);
-
     Event.findById(id, function (err, editevent) {
       if (err) {
         res.sendStatus(500);
