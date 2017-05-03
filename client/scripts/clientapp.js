@@ -60,6 +60,24 @@ myApp.config(['$routeProvider', '$locationProvider',
         }]
       }
     })
+    .when('/milestones', {
+      templateUrl: '/views/templates/milestones.html',
+      controller: 'InfoController',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
+    .when('/medicalinfo', {
+      templateUrl: '/views/templates/medicalinfo.html',
+      controller: 'InfoController',
+      resolve: {
+        getuser : ['UserService', function(UserService){
+          return UserService.getuser();
+        }]
+      }
+    })
     .when('/resources', {
       templateUrl: '/views/templates/resource.html',
       controller: 'ResourceController',

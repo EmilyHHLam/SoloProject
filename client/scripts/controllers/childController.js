@@ -13,14 +13,6 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     // $watch search to update pagination
     $scope.onEventComplete = function() {
       console.log('CALLBACK', $scope.eventsList.events.length);
-      $scope.isArrowShow = function(){
-        if ($scope.eventsList.events.length>$scope.entryLimit) {
-          return true;
-        }
-        else {
-          return false;
-        }
-      };
       $scope.$watch('search', function (newVal, oldVal) {
           $scope.totalItems =$scope.eventsList.events.length;
           $scope.filtered = filterFilter($scope.eventsList.events, newVal);

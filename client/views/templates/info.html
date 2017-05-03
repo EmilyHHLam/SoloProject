@@ -16,9 +16,7 @@
       <div class="input-group"> <span class="input-group-addon">Filter</span>
         <input type="text" class="form-control" ng-model="search.etype" placeholder="Type event here...">
       </div>
-      total lead items: {{eventsList.events.length}}
-      <!--isArrowShow when the evenList.length > entryLimit-->
-      <div ng-show="isArrowShow()">
+      <div ng-show="noOfPages > 1">
         <pagination page="currentPage" max-size="noOfPages" total-items="totalItems" items-per-page="entryLimit" class="pagination"previous-text="" next-text=""></pagination>
       </div>
     <div class="row" ng-repeat="event in filtered = eventsList.events | filter:search | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit" >
@@ -37,7 +35,7 @@
         <div ng-hide="editMode" class="col-xs-12">{{event.etype | uppercase}}</div>
 
       </div>
-      <div class="col-xs-12">
+      <div class="message col-xs-12">
         <div ng-hide="editMode" class="col-xs-2">{{event.date | date : "M/d/yy" }}</div>
         <div ng-hide="editMode" class="col-xs-2">{{event.time}}</div>
         <div ng-hide="editMode" class="col-xs-6">{{event.note}}</div>
