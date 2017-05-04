@@ -1,7 +1,5 @@
-myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'filterFilter', 'ChildService' , function($scope, $http, $location, $routeParams, filterFilter, ChildService) {
+myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'filterFilter', '$modal', 'ChildService' , function($scope, $http, $location, $routeParams, filterFilter, $modal, ChildService) {
     console.log('Child Control sourced :');
-    // console.log($routeParams.name);
-    // console.log('id' + $routeParams.child_id);
     $scope.name = $routeParams.name;
     var childName = $routeParams.name;
     if ($routeParams.gender == "boy") {
@@ -10,6 +8,21 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       $scope.imgLoad = 'views/images/girl.png';
     }
 
+  //   passing the value from modal
+
+
+    $scope.activity ={};
+    console.log('activity', $scope.activity.date);
+    var etype = {};
+    $scope.getData = function(etype) {
+      console.log('type', etype);
+
+    };
+    //console.log('date=', $scope.activity.date);
+    // console.log($routeParams.name);
+    // console.log('id' + $routeParams.child_id);
+
+    //end passing the modal values
     // $watch search to update pagination
     $scope.onEventComplete = function() {
       console.log('CALLBACK', $scope.eventsList.events.length);
@@ -48,7 +61,12 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
 
 
   $scope.addDetail = function() {
+    var test= 'test';
+    if(test === 'test') {
+      console.log('go here');
+    }
     swal.withForm({
+
       title: 'Add an Event',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -77,6 +95,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       if (isConfirm === true) {
       var person = {};
       person = this.swalForm;
+      console.log('person', person);
       if (person.etype !== 'empty') {
         person.id = $routeParams.child_id;
         ChildService.addDetail(person, $scope.onEventComplete) ;
