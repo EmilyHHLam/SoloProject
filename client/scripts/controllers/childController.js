@@ -11,13 +11,9 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
   //   passing the value from modal
 
 
-    $scope.activity ={};
-    console.log('activity', $scope.activity.date);
-    var etype = {};
-    $scope.getData = function(etype) {
-      console.log('type', etype);
+    // $scope.activity ={};
+    // console.log('activity', $scope.activity.date);
 
-    };
     //console.log('date=', $scope.activity.date);
     // console.log($routeParams.name);
     // console.log('id' + $routeParams.child_id);
@@ -59,51 +55,58 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     });
   };
 
+  var thisEvent = {};
+  $scope.addDetail = function(thisEvent) {
+    console.log('this event', thisEvent);
+     thisEvent.id = $routeParams.child_id;
+     ChildService.addDetail(thisEvent, $scope.onEventComplete) ;
 
-  $scope.addDetail = function() {
-    var test= 'test';
-    if(test === 'test') {
-      console.log('go here');
-    }
-    swal.withForm({
-
-      title: 'Add an Event',
-      showCancelButton: true,
-      confirmButtonColor: '#DD6B55',
-      confirmButtonText: 'Add Data',
-      closeOnConfirm: true,
-      formFields: [
-        { id: 'etype', type: 'select', required: true, options: [
-            {value: '', text: 'Please select one'},
-            {value: 'feeding', text: 'Feeding'},
-            {value: 'diaper Change', text: 'Diaper Change'},
-            {value: 'medical', text: 'Medical'},
-            {value: 'dental', text: 'Dental'},
-            {value: 'milestone', text: 'Milestone'},
-            {value: 'metrics', text: 'Metrics'},
-            {value: 'other', text: 'Other'}
-        ]},
-        { id: 'date', placeholder: 'Date', required: true},
-        { id: 'time', placeholder: 'Time', required: true },
-        { id: 'note', type: 'textarea', required: true }
-
-
-      ]
-    },
-
-    function (isConfirm) {
-      if (isConfirm === true) {
-      var person = {};
-      person = this.swalForm;
-      console.log('person', person);
-      if (person.etype !== 'empty') {
-        person.id = $routeParams.child_id;
-        ChildService.addDetail(person, $scope.onEventComplete) ;
-      }
-     }
-    }
-  );
   };
+  //
+  // $scope.addDetail = function() {
+  //   var test= 'test';
+  //   if(test === 'test') {
+  //     console.log('go here');
+  //   }
+  //   swal.withForm({
+  //
+  //     title: 'Add an Event',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#DD6B55',
+  //     confirmButtonText: 'Add Data',
+  //     closeOnConfirm: true,
+  //     formFields: [
+  //       { id: 'etype', type: 'select', required: true, options: [
+  //           {value: '', text: 'Please select one'},
+  //           {value: 'feeding', text: 'Feeding'},
+  //           {value: 'diaper Change', text: 'Diaper Change'},
+  //           {value: 'medical', text: 'Medical'},
+  //           {value: 'dental', text: 'Dental'},
+  //           {value: 'milestone', text: 'Milestone'},
+  //           {value: 'metrics', text: 'Metrics'},
+  //           {value: 'other', text: 'Other'}
+  //       ]},
+  //       { id: 'date', placeholder: 'Date', required: true},
+  //       { id: 'time', placeholder: 'Time', required: true },
+  //       { id: 'note', type: 'textarea', required: true }
+  //
+  //
+  //     ]
+  //   },
+  //
+  //   function (isConfirm) {
+  //     if (isConfirm === true) {
+  //     var person = {};
+  //     person = this.swalForm;
+  //     console.log('person', person);
+  //     if (person.etype !== 'empty') {
+  //       person.id = $routeParams.child_id;
+  //       ChildService.addDetail(person, $scope.onEventComplete) ;
+  //     }
+  //    }
+  //   }
+  // );
+  // };
 //==end of swal form==
 //pagination
 $scope.search = {};
