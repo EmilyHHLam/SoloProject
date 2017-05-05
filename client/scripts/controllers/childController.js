@@ -8,17 +8,6 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       $scope.imgLoad = 'views/images/girl.png';
     }
 
-  //   passing the value from modal
-
-
-    // $scope.activity ={};
-    // console.log('activity', $scope.activity.date);
-
-    //console.log('date=', $scope.activity.date);
-    // console.log($routeParams.name);
-    // console.log('id' + $routeParams.child_id);
-
-    //end passing the modal values
     // $watch search to update pagination
     $scope.onEventComplete = function() {
       console.log('CALLBACK', $scope.eventsList.events.length);
@@ -55,67 +44,21 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     });
   };
 
-  var thisEvent = {};
+  $scope.thisEvent = {};
   $scope.addDetail = function(thisEvent) {
     console.log('this event', thisEvent);
      thisEvent.id = $routeParams.child_id;
      ChildService.addDetail(thisEvent, $scope.onEventComplete) ;
 
   };
-  //
-  // $scope.addDetail = function() {
-  //   var test= 'test';
-  //   if(test === 'test') {
-  //     console.log('go here');
-  //   }
-  //   swal.withForm({
-  //
-  //     title: 'Add an Event',
-  //     showCancelButton: true,
-  //     confirmButtonColor: '#DD6B55',
-  //     confirmButtonText: 'Add Data',
-  //     closeOnConfirm: true,
-  //     formFields: [
-  //       { id: 'etype', type: 'select', required: true, options: [
-  //           {value: '', text: 'Please select one'},
-  //           {value: 'feeding', text: 'Feeding'},
-  //           {value: 'diaper Change', text: 'Diaper Change'},
-  //           {value: 'medical', text: 'Medical'},
-  //           {value: 'dental', text: 'Dental'},
-  //           {value: 'milestone', text: 'Milestone'},
-  //           {value: 'metrics', text: 'Metrics'},
-  //           {value: 'other', text: 'Other'}
-  //       ]},
-  //       { id: 'date', placeholder: 'Date', required: true},
-  //       { id: 'time', placeholder: 'Time', required: true },
-  //       { id: 'note', type: 'textarea', required: true }
-  //
-  //
-  //     ]
-  //   },
-  //
-  //   function (isConfirm) {
-  //     if (isConfirm === true) {
-  //     var person = {};
-  //     person = this.swalForm;
-  //     console.log('person', person);
-  //     if (person.etype !== 'empty') {
-  //       person.id = $routeParams.child_id;
-  //       ChildService.addDetail(person, $scope.onEventComplete) ;
-  //     }
-  //    }
-  //   }
-  // );
-  // };
+
 //==end of swal form==
 //pagination
 $scope.search = {};
-
   $scope.resetFilters = function () {
-      // needs to be a function or it won't trigger a $watch
-      $scope.search = {};
+  // needs to be a function or it won't trigger a $watch
+  $scope.search = {};
   };
-
 
 $scope.entryLimit = 3;
 $scope.currentPage = 0;

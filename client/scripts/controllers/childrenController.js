@@ -14,7 +14,7 @@ var child = {};
 
   $scope.addChild = function() {
     swal.withForm({
-      title: 'Add a New Baby',
+      title: 'Congrats! Add Your Baby',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
       confirmButtonText: 'Add Data',

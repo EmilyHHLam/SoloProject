@@ -3,7 +3,9 @@ var router = express.Router();
 var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 
-var  EventSchema = new Schema({
+var  EventSchema = new Schema({});
+
+var  ActivitySchema = new Schema({
   date: Date,
   time: String,
   note: String,
@@ -11,9 +13,21 @@ var  EventSchema = new Schema({
   child_id: String
 
 });
+var  MetricSchema = new Schema({
+  date: Date,
+  note: String,
+  etype: String,
+  height: String,
+  weight: String,
+  wpercent: String,
+  hpercent: String,
+  child_id: String
+
+});
 
 var Event = mongoose.model('events', EventSchema, 'events');
-
+var Activity = mongoose.model('activity', ActivitySchema, 'events');
+var Metric = mongoose.model('metric', MetricSchema, 'events');
 
 router.get('/:id', function(req, res) {
      Event.find({'child_id': req.params.id}, function(err, eventList) {
@@ -33,10 +47,10 @@ router.get('/:id', function(req, res) {
   res.send(deletedEvent);
   });
 });
-
+//activity
 router.put('/', function(req, res, next) {
     var id = req.body._id;
-    Event.findById(id, function (err, editevent) {
+    Activity.findById(id, function (err, editevent) {
       if (err) {
         res.sendStatus(500);
       }
@@ -55,23 +69,65 @@ router.put('/', function(req, res, next) {
 
     });
   });
+  //metrics
+  router.put('/', function(req, res, next) {
+      var id = req.body._id;
+      Metric.findById(id, function (err, editmetric) {
+        if (err) {
+          res.sendStatus(500);
+        }
+        else{
+            editmetric.date = req.body.date || editmetric.date;
+            editmetric.note = req.body.note || editmetric.note;
+            editmetric.weight = req.body.weight || editmetric.weight;
+            editmetric.height = req.body.height || editmetric.height;
+            editmetric.wpercent = req.body.wpercent || editmetric.wpercent;
+            editmetric.hpercent = req.body.hpercent || editmetric.hpercent;
+            editmetric.etype = req.body.etype || editmetric.etype ;
+            editmetric.save(function (err, editmetric) {
+              if (err) {
+                res.sendStatus(500);
+              }
+              res.send(editmetric);
+            });
+          }
 
-
- router.post('/', function(req, res) {
-  //  console.log('child in details' + req.body);
-   var event = new Event({
+      });
+    });
+ router.post('/activity', function(req, res) {
+   var activity = new Activity({
      date: req.body.date,
      time: req.body.time,
      note: req.body.note,
      etype: req.body.etype,
      child_id: req.body.id
    });
-   event.save(function(err, savedEvent) {
+   activity.save(function(err, savedActivity) {
      if(err) {
        console.log("mongo error" + err);
        res.sendStatus(500);
      }
-     res.send(savedEvent);
+     res.send(savedActivity);
+   });
+ });
+ router.post('/metric', function(req, res) {
+   console.log('child in details in server', req.body);
+   var metric = new Metric({
+     date: req.body.date,
+     note: req.body.note,
+     etype: req.body.etype,
+     height: req.body.height,
+     weight: req.body.weight,
+     wpercent: req.body.wpercent,
+     hpercent: req.body.hpercent,
+     child_id: req.body.id
+   });
+   metric.save(function(err, savedMetric) {
+     if(err) {
+       console.log("mongo error" + err);
+       res.sendStatus(500);
+     }
+     res.send(savedMetric);
    });
  });
 

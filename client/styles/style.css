@@ -81,7 +81,16 @@
   width: 100px;
   height: auto;
 }
-
+.addimg {
+  width: 100px;
+  height: auto;
+  text-align: right;
+}
+.babyname {
+  font-family: "Dancing Script";
+  font-weight: bolder;
+  font-size:25px;
+}
 .titleImg {
   width:100px;
   height: auto;
@@ -89,9 +98,16 @@
   top: -40px;
 }
 .title {
-  color: white
+  font-family: "Dancing Script";
+  color: black;
   padding-top: 20px;
-  font-size: 20px;
+  font-size: 25px;
+}
+.logoname {
+  font-family: "Dancing Script";
+  color: white;
+  padding-top: 20px;
+  font-size: 30px;
 }
 
 .step {
@@ -113,8 +129,12 @@
 }
 
 .pagination>li:first-child>a, .pagination>li:last-child>a{
-    background: url(http://www.myiconfinder.com/uploads/iconsets/7e81c2f3697b91ee17fe6ed6348c232a-Arrow.png);
+  background: url(http://www.myiconfinder.com/uploads/iconsets/7e81c2f3697b91ee17fe6ed6348c232a-Arrow.png);
   background-size: 100% 100%;
   height: 34px;
   width: 34px;
+}
+.pagination {
+padding: 0px;
+margin: 0px;
 }
