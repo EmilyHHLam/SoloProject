@@ -6,9 +6,20 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
 
   //--add the child data
   var addDetail = function(child, onEventComplete) {
-    $http.post('/detail', child).then(function(response) {
-      getDetails(child.id, onEventComplete);
-    });
+    console.log('child event', child);
+    if (child.weight !== undefined) {
+      console.log('metrics');
+      $http.post('/detail/metric', child).then(function(response) {
+        getDetails(child.id, onEventComplete);
+      });
+    }
+    else {
+      console.log('not metrics');
+      $http.post('/detail/activity', child).then(function(response) {
+        getDetails(child.id, onEventComplete);
+      });
+    }
+
   };
 
   //get the event list of the child

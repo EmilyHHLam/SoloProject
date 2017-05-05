@@ -1,7 +1,5 @@
-myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'filterFilter', 'ChildService' , function($scope, $http, $location, $routeParams, filterFilter, ChildService) {
+myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'filterFilter', '$modal', 'ChildService' , function($scope, $http, $location, $routeParams, filterFilter, $modal, ChildService) {
     console.log('Child Control sourced :');
-    // console.log($routeParams.name);
-    // console.log('id' + $routeParams.child_id);
     $scope.name = $routeParams.name;
     var childName = $routeParams.name;
     if ($routeParams.gender == "boy") {
@@ -46,54 +44,21 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     });
   };
 
+  $scope.thisEvent = {};
+  $scope.addDetail = function(thisEvent) {
+    console.log('this event', thisEvent);
+     thisEvent.id = $routeParams.child_id;
+     ChildService.addDetail(thisEvent, $scope.onEventComplete) ;
 
-  $scope.addDetail = function() {
-    swal.withForm({
-      title: 'Add an Event',
-      showCancelButton: true,
-      confirmButtonColor: '#DD6B55',
-      confirmButtonText: 'Add Data',
-      closeOnConfirm: true,
-      formFields: [
-        { id: 'etype', type: 'select', required: true, options: [
-            {value: '', text: 'Please select one'},
-            {value: 'feeding', text: 'Feeding'},
-            {value: 'diaper Change', text: 'Diaper Change'},
-            {value: 'medical', text: 'Medical'},
-            {value: 'dental', text: 'Dental'},
-            {value: 'milestone', text: 'Milestone'},
-            {value: 'metrics', text: 'Metrics'},
-            {value: 'other', text: 'Other'}
-        ]},
-        { id: 'date', placeholder: 'Date', required: true},
-        { id: 'time', placeholder: 'Time', required: true },
-        { id: 'note', type: 'textarea', required: true }
-
-
-      ]
-    },
-
-    function (isConfirm) {
-      if (isConfirm === true) {
-      var person = {};
-      person = this.swalForm;
-      if (person.etype !== 'empty') {
-        person.id = $routeParams.child_id;
-        ChildService.addDetail(person, $scope.onEventComplete) ;
-      }
-     }
-    }
-  );
   };
+
 //==end of swal form==
 //pagination
 $scope.search = {};
-
   $scope.resetFilters = function () {
-      // needs to be a function or it won't trigger a $watch
-      $scope.search = {};
+  // needs to be a function or it won't trigger a $watch
+  $scope.search = {};
   };
-
 
 $scope.entryLimit = 3;
 $scope.currentPage = 0;
