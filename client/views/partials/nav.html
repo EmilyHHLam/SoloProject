@@ -1,5 +1,6 @@
-<ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="#/user">Home</a></li>
+<ul class="nav navbar-nav navbar-right navbar-default menu navmenu" >
+    <li ng-class="menuIndice == 1 ? 'active':''" ><a ng-click="menuIndice = 1" data-toggle="collapse" data-target=".navbar-collapse" href="#/user">Home</a></li>
+    <!--Future use if there is drop down list-->
     <!-- <li class="drop down">
           <a class="dropdown-toggle" data-toggle="dropdown">Data Entry<b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -9,8 +10,8 @@
           </ul>
 
       </li> -->
-    <li><a href="#/resources">Resources</a></li>
-    <li><a href="#/contact">Contact</a></li>
+    <li  ng-class="menuIndice == 2 ? 'active':''"><a ng-click="menuIndice = 2" data-toggle="collapse" data-target=".navbar-collapse" href="#/resources">Resources</a></li>
+    <li ng-class="menuIndice == 3 ? 'active':''"><a ng-click="menuIndice = 3"  data-toggle="collapse" data-target=".navbar-collapse" href="#/contact">Contact</a></li>
     <li>
       &nbsp;&nbsp;
     </li>

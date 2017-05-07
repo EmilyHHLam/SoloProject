@@ -1,12 +1,13 @@
 myApp.controller('ChildrenController', ['$scope', '$http', '$location', 'UserService', function($scope, $http, $location, UserService) {
-console.log('child sourced :');
-//$scope.children = UserService.children;
-var child = {};
+  console.log('child sourced :');
+  var child = {};
 
   UserService.getChildren();
   $scope.childrenList = UserService.childrenList;
-  //console.log('childrenlist from fac', UserService.childrenList);
-
+  $scope.logout = function(){
+    console.log('Log out clicked!');
+  };
+  
   $scope.editaChild = function(child) {
     // console.log('here is a child to edit', child);
     UserService.editaChild(child);

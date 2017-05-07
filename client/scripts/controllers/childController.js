@@ -7,7 +7,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     }else {
       $scope.imgLoad = 'views/images/girl.png';
     }
-
+    
     // $watch search to update pagination
     $scope.onEventComplete = function() {
       console.log('CALLBACK', $scope.eventsList.events.length);
@@ -43,13 +43,35 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       ChildService.removeEvent(evt, $scope.onEventComplete);
     });
   };
-
+//add the event
   $scope.thisEvent = {};
   $scope.addDetail = function(thisEvent) {
     console.log('this event', thisEvent);
+    var eventType = thisEvent.etype;
+    console.log('type', eventType);
+    if (thisEvent.etype !== undefined) {
+      var eventTime = thisEvent.time;
+      console.log('hr', eventTime.getHours());
+      console.log('min', eventTime.getMinutes());
+      console.log('sec', eventTime.getSeconds());
+      var daynightTime;
+      if (eventTime !== undefined) {
+        var hrTime = eventTime.getHours();
+        if (hrTime > 13 ) {
+          hrTime = (hrTime - 12);
+          daynightTime = "PM";
+        } else {
+          daynightTime = "AM";
+        }
+        thisEvent.time = hrTime + ':' + eventTime.getMinutes() + ':' + daynightTime;
+      }
+    //  console.log('time=', thisEvent.time);
      thisEvent.id = $routeParams.child_id;
      ChildService.addDetail(thisEvent, $scope.onEventComplete) ;
+     console.log('type', thisEvent.etype);
+     $(this).find("input,textarea,select").val('').end();
 
+   }
   };
 
 //==end of swal form==

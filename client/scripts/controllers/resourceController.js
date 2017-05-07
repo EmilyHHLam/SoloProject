@@ -6,7 +6,7 @@ myApp.controller('ResourceController', ['$scope', '$http', '$location', '$routeP
     $scope.resourceList = ResourceService.resourceList;
     console.log('resource', ResourceService.resourceList);
     $scope.editResource = ResourceService.editResource;
-
+    
     //delete event
     $scope.removeResource = function(resource) {
       swal({
