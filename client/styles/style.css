@@ -132,13 +132,17 @@
 
 @media only screen and (max-width: 766px) {
 .collapsing, .in {background-color: #f7f7f7;}
-.collapsing ul li a, .in ul li a {color: #666!important;}
+/*.collapsing ul li a, .in ul li a {color: #666!important;}*/
 .collapsing ul li a:hover, .in ul li a:hover {color: #e24dae!important;}
 }
 /*.navmenu {
-    background-color: #262626;
-    margin-right: 0px;
+    /*background-color: #262626;*/
+    /*margin-right: 0px;
 }*/
+.navbar-default {
+    background-color: #1e110d;
+    border-color: #e7e7e7;
+}
 
 .pagination>li:first-child>a, .pagination>li:last-child>a{
   padding-left: 0px;

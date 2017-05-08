@@ -1,4 +1,4 @@
-myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'filterFilter', '$modal', 'ChildService' , function($scope, $http, $location, $routeParams, filterFilter, $modal, ChildService) {
+myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', '$uibModal', 'filterFilter',  'ChildService' , function($scope, $http, $location, $routeParams, $uibModal, filterFilter, ChildService) {
     console.log('Child Control sourced :');
     $scope.name = $routeParams.name;
     var childName = $routeParams.name;
@@ -7,7 +7,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     }else {
       $scope.imgLoad = 'views/images/girl.png';
     }
-    
+
     // $watch search to update pagination
     $scope.onEventComplete = function() {
       console.log('CALLBACK', $scope.eventsList.events.length);
@@ -22,7 +22,6 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
   //get list of the events
   ChildService.getDetails($routeParams.child_id, $scope.onEventComplete);
 
-  //ChildService.getDetails($routeParams.child_id);
   $scope.eventsList = ChildService.eventsList;
 
   //update event
@@ -50,6 +49,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
     var eventType = thisEvent.etype;
     console.log('type', eventType);
     if (thisEvent.etype !== undefined) {
+      if (thisEvent.time !== undefined) {
       var eventTime = thisEvent.time;
       console.log('hr', eventTime.getHours());
       console.log('min', eventTime.getMinutes());
@@ -64,6 +64,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
           daynightTime = "AM";
         }
         thisEvent.time = hrTime + ':' + eventTime.getMinutes() + ':' + daynightTime;
+        }
       }
     //  console.log('time=', thisEvent.time);
      thisEvent.id = $routeParams.child_id;
