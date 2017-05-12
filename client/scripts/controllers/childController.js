@@ -13,10 +13,13 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       console.log('CALLBACK', $scope.eventsList.events.length);
       $scope.$watch('search', function (newVal, oldVal) {
           $scope.totalItems =$scope.eventsList.events.length;
+          console.log('totalitem', totalItems);
           $scope.filtered = filterFilter($scope.eventsList.events, newVal);
           $scope.totalItems = $scope.filtered.length;
           $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
           $scope.currentPage = 1;
+
+
       }, true);
     };
   //get list of the events
