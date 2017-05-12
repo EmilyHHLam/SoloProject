@@ -1,7 +1,4 @@
-# Express/Passport with Angular Routing
-This version uses Angular to control the login requests and redirection in coordination with client-side routing.
+# Growth and Development (GAD) Track App
 
-Important Directions:
-* Run `npm install`,
-* Run `grunt' in an open tab of terminal,
-* Use the `client` file to work on front end files. Grunt will watch those files to be compiled into the `server/public` files. This handles minification and such.
+**System Detail**
+As a new mother, she's juggling to take care baby and herself while trying to document the baby's growth and development, her baby's milestones, doctor's appoitment, capture of of her baby's little story and the amazing moments so she could share when her children are bigger
