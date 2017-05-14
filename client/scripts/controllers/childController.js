@@ -1,7 +1,8 @@
-myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', '$uibModal', 'filterFilter',  'ChildService' , function($scope, $http, $location, $routeParams, $uibModal, filterFilter, ChildService) {
+myApp.controller('ChildController', ['$scope', '$http', '$location', '$routeParams', 'filterFilter',  'ChildService' , function($scope, $http, $location, $routeParams, filterFilter, ChildService) {
     console.log('Child Control sourced :');
     $scope.name = $routeParams.name;
     var childName = $routeParams.name;
+    
     if ($routeParams.gender == "boy") {
       $scope.imgLoad = 'views/images/boy.png';
     }else {
@@ -13,7 +14,7 @@ myApp.controller('ChildController', ['$scope', '$http', '$location', '$routePara
       console.log('CALLBACK', $scope.eventsList.events.length);
       $scope.$watch('search', function (newVal, oldVal) {
           $scope.totalItems =$scope.eventsList.events.length;
-          console.log('totalitem', totalItems);
+          console.log('totalitem', $scope.totalItems);
           $scope.filtered = filterFilter($scope.eventsList.events, newVal);
           $scope.totalItems = $scope.filtered.length;
           $scope.noOfPages = Math.ceil($scope.totalItems / $scope.entryLimit);
