@@ -6,8 +6,9 @@ myApp.controller('ChildrenController', ['$scope', '$http', '$location', 'UserSer
   $scope.childrenList = UserService.childrenList;
   $scope.logout = function(){
     console.log('Log out clicked!');
+    UserService.logout();
   };
-  
+
   $scope.editaChild = function(child) {
     // console.log('here is a child to edit', child);
     UserService.editaChild(child);

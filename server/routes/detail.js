@@ -30,7 +30,7 @@ var Activity = mongoose.model('activity', ActivitySchema, 'events');
 var Metric = mongoose.model('metric', MetricSchema, 'events');
 
 router.get('/:id', function(req, res) {
-     Event.find({'child_id': req.params.id}, function(err, eventList) {
+     Event.find({'child_id': req.params.id}, null, {sort: {_id: -1}}, function(err, eventList) {
       res.send(eventList);
     });
 

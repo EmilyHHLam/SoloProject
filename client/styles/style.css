@@ -144,7 +144,7 @@
     border-color: #e7e7e7;
 }
 
-.pagination>li:first-child>a, .pagination>li:last-child>a{
+/*.pagination>li:first-child>a, .pagination>li:last-child>a{
   padding-left: 0px;
   padding-right: 0px;
   background: url(../views/images/arrow.png);
@@ -152,6 +152,7 @@
   height: 34px;
   width: 34px;
 }
+*/
 .pagination {
 padding: 0px;
 margin: 0px;
