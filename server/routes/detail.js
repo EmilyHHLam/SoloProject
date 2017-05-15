@@ -6,7 +6,7 @@ var mongoose = require('mongoose'), Schema = mongoose.Schema;
 var  EventSchema = new Schema({});
 
 var  ActivitySchema = new Schema({
-  date: Date,
+  date: String,
   time: String,
   note: String,
   etype: String,
@@ -14,7 +14,7 @@ var  ActivitySchema = new Schema({
 
 });
 var  MetricSchema = new Schema({
-  date: Date,
+  date: String,
   note: String,
   etype: String,
   height: String,
@@ -30,7 +30,7 @@ var Activity = mongoose.model('activity', ActivitySchema, 'events');
 var Metric = mongoose.model('metric', MetricSchema, 'events');
 
 router.get('/:id', function(req, res) {
-     Event.find({'child_id': req.params.id}, function(err, eventList) {
+     Event.find({'child_id': req.params.id}, null, {sort: {_id: -1}}, function(err, eventList) {
       res.send(eventList);
     });
 
@@ -48,8 +48,9 @@ router.get('/:id', function(req, res) {
   });
 });
 //activity
-router.put('/', function(req, res, next) {
+router.put('/activity', function(req, res, next) {
     var id = req.body._id;
+    // console.log('edit activity in server', req.body);
     Activity.findById(id, function (err, editevent) {
       if (err) {
         res.sendStatus(500);
@@ -70,8 +71,10 @@ router.put('/', function(req, res, next) {
     });
   });
   //metrics
-  router.put('/', function(req, res, next) {
+  router.put('/metric', function(req, res, next) {
       var id = req.body._id;
+      // console.log('edit metric in server', req.body);
+      // console.log('edit id in server', id);
       Metric.findById(id, function (err, editmetric) {
         if (err) {
           res.sendStatus(500);

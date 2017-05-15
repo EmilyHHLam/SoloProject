@@ -1,21 +1,25 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-8">
+    <div class="col-xs-1"></div>
+    <div class="col-xs-7">
       <span class="title">Resources</span>
     </div>
-    <div>
+    <div class="col-xs-4">
       <img class="addimg" ng-src="views/images/add.png" ng-click="addResource()" />
     </div>
 
   </div>
   <div><br /></div>
   <div class="row message" ng-repeat="resource in resourceList.lists">
-    <div ng-show="editMode" class="step">
-      <div class="col-xs-12">EDIT BELOW: <br /></div>
-      <div class="col-xs-12" ><input ng-show="editMode" ng-model="resource.title"></div>
-      <div class="col-xs-12" ><input ng-show="editMode" ng-model="resource.link"></div>
-      <div class="col-xs-12" ><input ng-show="editMode" ng-model="resource.note"></div>
-    </div>
+    <div class="row" ng-show="editMode" class="step">
+      <div class="col-xs-1"></div>
+        <div class="col-xs-11">
+        <div class="col-xs-12">EDIT BELOW: <br /></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="resource.title"></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="resource.link"></div>
+        <div class="col-xs-12" ><input ng-show="editMode" ng-model="resource.note"></div>
+      </div>
+   </div>
    <div class="col-xs-12">
 
       <div ng-hide="editMode" class="col-xs-12">{{resource.title | uppercase}}</div>
@@ -23,15 +27,18 @@
     </div>
     <div class="col-xs-12">
       <div class="col-xs-1"></div>
-      <div ng-hide="editMode" >{{resource.link }}</div>
+      <div ng-hide="editMode" ><a target="_blank" ng-href="{{resource.link}}">{{resource.title}}</a></div>
     </div>
     <div class="col-xs-12">
-      <div ng-hide="editMode" class="col-xs-9">{{resource.note}}</div>
+      <div ng-hide="editMode" class="col-xs-8">{{resource.note}}</div>
+      <div class="col-xs-4">
+        <div ng-hide="editMode" class="col-xs-1" ng-click="removeResource(resource)">
+        <button type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button></div>
+        <div class="col-xs-1"></div>
+        <div ng-hide="editMode" class="col-xs-1" ng-click="editMode=true" ><button type="button" class="btn btn-xs btn-edit"><span class=" glyphicon glyphicon-pencil"></span></button></div>
+        <div class= "col-xs-1 " ng-show="editMode" ng-click="editResource(resource);editMode=false"><button type="button" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></div>
 
-      <div ng-hide="editMode" class="col-xs-1 " ng-click="removeResource(resource)">
-      <button type="button" class="btn btn-xs btn-danger"><span class="glyphicon glyphicon-remove"></span></button></div>
-      <div ng-hide="editMode" class="col-xs-1" ng-click="editMode=true" ><button type="button" class="btn btn-xs btn-edit"><span class=" glyphicon glyphicon-pencil"></span></button></div>
-      <div class= "col-xs-1 " ng-show="editMode" ng-click="editResource(resource);editMode=false"><button type="button" class="btn btn-xs btn-success"><span class="glyphicon glyphicon-ok"></span></div>
+      </div>
 
     </div>
 

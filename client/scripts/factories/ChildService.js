@@ -41,9 +41,19 @@ myApp.factory('ChildService', ['$http', '$location', '$route', function($http, $
 
   //edit the child
   var editEvent = function(evt, onEventComplete) {
-    $http.put('/detail', evt).then(function(response) {
-      getDetails(evt.child_id, onEventComplete);
-    });
+    // console.log('event', evt);
+    if (evt.weight !== undefined) {
+      $http.put('/detail/metric', evt).then(function(response) {
+        getDetails(evt.child_id, onEventComplete);
+      });
+
+    } else{
+      // console.log('metrics');
+      $http.put('/detail/activity', evt).then(function(response) {
+        getDetails(evt.child_id, onEventComplete);
+      });
+    }
+
   };
 
   return {
