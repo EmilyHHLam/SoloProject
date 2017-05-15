@@ -1,3 +1,4 @@
+
 ## GROWTH AND DEVELOPMENT (GAD) TRAC APPLICATION ##
 
  ##APP DETAIL##
@@ -30,8 +31,6 @@
 * Collecting the metrics information, the stretch goal is to build the growth chart that the mother could see how much her bay's growth is
 
  ![Screenshot](images/login.png) ![Screenshot](images/children.png)
- ![Screenshot](images/addNewBaby.png)
- ![Screenshot](images/childDetail.png)
- ![Screenshot](images/addEvent.png)
- ![Screenshot](images/resources.png)
+ ![Screenshot](images/addNewBaby.png) ![Screenshot](images/childDetail.png)
+ ![Screenshot](images/addEvent.png) ![Screenshot](images/resources.png)
  ![Screenshot](images/contact.png)
