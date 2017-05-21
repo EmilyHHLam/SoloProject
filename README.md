@@ -32,5 +32,5 @@
 
  ![Screenshot](images/login.png) 
  
- ![](images/children.png = 100x)![](images/addNewBaby.png) ![](images/childDetail.png) ![](images/addEvent.png) ![](images/resources.png) ![](images/contacts.png)
+ ![](images/children.png)![](images/addNewBaby.png) ![](images/childDetail.png) ![](images/addEvent.png) ![](images/resources.png) ![](images/contacts.png)
  
