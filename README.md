@@ -30,7 +30,7 @@
 **Stretch goal**
 * Collecting the metrics information, the stretch goal is to build the growth chart that the mother could see how much her bay's growth is
 
- ![Screenshot](images/login.png = 200px) ![Screenshot](images/children.png = 100)
- ![Screenshot](images/addNewBaby.png = 100) ![Screenshot](images/childDetail.png = 100)
- ![Screenshot](images/addEvent.png = 100) ![Screenshot](images/resources.png = 100)
- ![Screenshot](images/contact.png =100)
+ ![Screenshot](images/login.png) 
+ 
+ ![](images/children.png)![](images/addNewBaby.png) ![](images/childDetail.png) ![](images/addEvent.png) ![](images/resources.png) ![](images/contact.png)
+ 
