@@ -32,5 +32,7 @@
 
  ![Screenshot](images/login.png) 
  
+ * Mobile-View version
+ 
  ![](images/children.png)![](images/addNewBaby.png) ![](images/childDetail.png) ![](images/addEvent.png) ![](images/resources.png) ![](images/contacts.png)
  
