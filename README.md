@@ -1,7 +1,7 @@
 
 ## GROWTH AND DEVELOPMENT (GAD) TRAC APPLICATION ##
 
- ##APP DETAIL
+ ## Application Detail
 
 * As being busy taking care of herself and her baby while trying to document her baby's growth development
 * GAD (growth and development) app helps her to document all her baby's growth progress, baby's milestones, doctor notes, baby's metrics (weight/height/weight percentile, height percentile) and capture every amazing moments.
