@@ -25,6 +25,6 @@
  
 
 <img src="images/children.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/addNewBaby.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/childDetail.png" align="left" height=auto width="270px" >
-
+<br><br>
 <img src="images/AddEvent.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/contacts.png" align="left" height=auto width="270px" >
  
