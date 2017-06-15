@@ -26,5 +26,5 @@
 
 <img src="images/children.png" align="left" height=auto width="300px" ><img src="images/addNewBaby.png" align="left" height=auto width="300px" ><img src="images/childDetail.png" align="left" height=auto width="300px" >
 
- ![](images/children.png = 100x100)![](images/addNewBaby.png) ![](images/childDetail.png) ![](images/addEvent.png) ![](images/resources.png) ![](images/contacts.png)
+
  
