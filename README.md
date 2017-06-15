@@ -23,5 +23,5 @@
  
  ## Mobile View
  
- ![](images/children.png=50x100)![](images/addNewBaby.png) ![](images/childDetail.png) ![](images/addEvent.png) ![](images/resources.png) ![](images/contacts.png)
+ ![](images/children.png = 100x100)![](images/addNewBaby.png) ![](images/childDetail.png) ![](images/addEvent.png) ![](images/resources.png) ![](images/contacts.png)
  
