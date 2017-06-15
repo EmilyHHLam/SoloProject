@@ -23,6 +23,7 @@
  
  ## Mobile View
  
+![](images/addEvent.png)
 
 <img src="images/children.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/addNewBaby.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/childDetail.png" align="left" height=auto width="270px" >
 
