@@ -25,4 +25,4 @@
  
  ![](images/children.png = 100x100)![](images/addNewBaby.png) ![](images/childDetail.png) ![](images/addEvent.png) ![](images/resources.png) ![](images/contacts.png)
  
-<img src="images/children.png" align="left" height="50" width="100" >
+<img src="images/children.png" align="left" max-height="50%" max-width="50%" >
