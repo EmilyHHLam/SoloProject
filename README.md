@@ -24,7 +24,7 @@
  ## Mobile View
  
 
-<img src="images/children.png" align="left" height=auto width="250px" ><img src="images/addNewBaby.png" align="left" height=auto width="250px" ><img src="images/childDetail.png" align="left" height=auto width="250px" >
+<img src="images/children.png" align="left" height=auto width="270px" ><img src="images/addNewBaby.png" align="left" height=auto width="270px" ><img src="images/childDetail.png" align="left" height=auto width="270px" >
 
 
  
