@@ -29,7 +29,7 @@
 
 <td width="25%">The mother can add the new baby</td>
 
-<td width="25%">she can choose specific child and add/edit the event</td>
+<td width="25%">she can choose specific child to view the events</td>
 
 </tr>
 </table>
@@ -42,6 +42,23 @@
 
 </div>
 
+<table width="100%" border="0">
+<tr>
+<td width="25%">She can add/edit the event</td>
 
-<img src="images/AddEvent.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/contacts.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/resources.png" align="left" height=auto width="270px" >
+<td width="25%">She could able to view the list of contacts such as medical professional locations, the kids events location etc..</td>
+
+<td width="25%">If she finds the good article to save for reading later, or any websites that she wants to save in her app,resources are there for</td>
+
+</tr>
+</table>
+<div width="100%">
+<div width="30%"><img src="images/AddEvent.png" align="left" height=auto width="270px" ></div>
+<div>&nbsp;</div>
+<div width="30%"><img src="images/contacts.png" align="left" height=auto width="270px" ></div>
+<div>&nbsp;</div>
+<div width="30%"><img src="images/resources.png" align="left" height=auto width="270px" ></div>
+
+</div>
+
  
