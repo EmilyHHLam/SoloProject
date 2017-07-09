@@ -25,11 +25,11 @@
  
 <table width="100%">
 <tr>
-<td width="30%">The mother logs in and her list of children are displayed if applicable</td>
-<td>&nbsp;</td>
-<td width="30%">The mother logs in and her list of children are displayed if applicable</td>
-<td>&nbsp;</td>
-<td width="30%">The mother logs in and her list of children are displayed if applicable</td>
+<td width="30%">The mother logs in and her list of children are displayed if applicable<</td>
+<td width="5%">&nbsp;</td>
+<td width="30%">The mother can add the new baby/td>
+<td width="5%"></td>
+<td width="30%">she can choose specific child and add/edit the event</td>
 
 </tr>
 </table>
@@ -43,7 +43,5 @@
 </div>
 
 
-<img src="images/children.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/addNewBaby.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/childDetail.png" align="left" height=auto width="270px" >
-<p><br></p>
 <img src="images/AddEvent.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/contacts.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/resources.png" align="left" height=auto width="270px" >
  
