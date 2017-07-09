@@ -25,11 +25,11 @@
  
 <table width="100%" border="0">
 <tr>
-<td width="30%">The mother logs in and her list of children are displayed if applicable<</td>
+<td width="25%">The mother logs in and her list of children are displayed if applicable</td>
 
-<td width="30%">The mother can add the new baby/td>
+<td width="25%">The mother can add the new baby</td>
 
-<td width="30%">she can choose specific child and add/edit the event</td>
+<td width="25%">she can choose specific child and add/edit the event</td>
 
 </tr>
 </table>
