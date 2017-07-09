@@ -23,12 +23,12 @@
  
  ## Mobile View
  
-<table width="100%">
+<table width="100%" border="0">
 <tr>
 <td width="30%">The mother logs in and her list of children are displayed if applicable<</td>
-<td width="5%">&nbsp;</td>
+
 <td width="30%">The mother can add the new baby/td>
-<td width="5%"></td>
+
 <td width="30%">she can choose specific child and add/edit the event</td>
 
 </tr>
