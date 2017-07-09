@@ -23,7 +23,14 @@
  
  ## Mobile View
  
+<div width="100%">
+<div width="30%"></div>
+<div>&nbsp;</div>
+<div width="30%"></div>
+<div>&nbsp;</div>
+<div width="30%"></div>
 
+</div>
 <img src="images/children.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/addNewBaby.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/childDetail.png" align="left" height=auto width="270px" >
 <p><br></p>
 <img src="images/AddEvent.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/contacts.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/resources.png" align="left" height=auto width="270px" >
