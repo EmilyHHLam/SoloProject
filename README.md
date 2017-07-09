@@ -43,14 +43,6 @@
 
 </tr>
 </table>
-<div width="100%">
-<div width="30%"><img src="images/children.png" align="left" height=auto width="270px" ></div>
-<div>&nbsp;</div>
-<div width="30%"><img src="images/addNewBaby.png" align="left" height=auto width="270px" ></div>
-<div>&nbsp;</div>
-<div width="30%"><img src="images/childDetail.png" align="left" height=auto width="270px" ></div>
-
-</div>
 
 <table width="100%" border="0">
 <tr>
@@ -62,13 +54,18 @@
 
 </tr>
 </table>
-<div width="100%">
-<div width="30%"><img src="images/AddEvent.png" align="left" height=auto width="270px" ></div>
-<div>&nbsp;</div>
-<div width="30%"><img src="images/contacts.png" align="left" height=auto width="270px" ></div>
-<div>&nbsp;</div>
-<div width="30%"><img src="images/resources.png" align="left" height=auto width="270px" ></div>
 
-</div>
+<table width="100%" border="0">
+<tr>
+<td width="25%"><img src="images/AddEvent.png" align="left" height=auto width="270px" ></td>
+
+<td width="25%"><img src="images/contacts.png" align="left" height=auto width="270px" ></td>
+
+<td width="25%"><img src="images/resources.png" align="left" height=auto width="270px" ></td>
+
+</tr>
+</table>
+
+
 
  
