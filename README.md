@@ -23,14 +23,16 @@
  
  ## Mobile View
  
-<div width="100%">
-<div width="30%">The mother logs in and her list of children are displayed if applicable</div>
-<div>&nbsp;</div>
-<div width="30%">The mother logs in and her list of children are displayed if applicable</div>
-<div>&nbsp;</div>
-<div width="30%">The mother logs in and her list of children are displayed if applicable</div>
+<table width="100%">
+<tr>
+<td width="30%">The mother logs in and her list of children are displayed if applicable</td>
+<td>&nbsp;</td>
+<td width="30%">The mother logs in and her list of children are displayed if applicable</td>
+<td>&nbsp;</td>
+<td width="30%">The mother logs in and her list of children are displayed if applicable</td>
 
-</div>
+</tr>
+</table>
 <div width="100%">
 <div width="30%"><img src="images/children.png" align="left" height=auto width="270px" ></div>
 <div>&nbsp;</div>
