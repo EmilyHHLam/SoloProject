@@ -24,6 +24,14 @@
  ## Mobile View
  
 <div width="100%">
+<div width="30%">The mother logs in and her list of children are displayed if applicable</div>
+<div>&nbsp;</div>
+<div width="30%">The mother logs in and her list of children are displayed if applicable</div>
+<div>&nbsp;</div>
+<div width="30%">The mother logs in and her list of children are displayed if applicable</div>
+
+</div>
+<div width="100%">
 <div width="30%"><img src="images/children.png" align="left" height=auto width="270px" ></div>
 <div>&nbsp;</div>
 <div width="30%"><img src="images/addNewBaby.png" align="left" height=auto width="270px" ></div>
@@ -31,6 +39,8 @@
 <div width="30%"><img src="images/childDetail.png" align="left" height=auto width="270px" ></div>
 
 </div>
+
+
 <img src="images/children.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/addNewBaby.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/childDetail.png" align="left" height=auto width="270px" >
 <p><br></p>
 <img src="images/AddEvent.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/contacts.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/resources.png" align="left" height=auto width="270px" >
