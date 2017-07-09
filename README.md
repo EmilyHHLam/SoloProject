@@ -24,11 +24,11 @@
  ## Mobile View
  
 <div width="100%">
-<div width="30%"></div>
+<div width="30%"><img src="images/children.png" align="left" height=auto width="270px" ></div>
 <div>&nbsp;</div>
-<div width="30%"></div>
+<div width="30%"><img src="images/addNewBaby.png" align="left" height=auto width="270px" ></div>
 <div>&nbsp;</div>
-<div width="30%"></div>
+<div width="30%"><img src="images/childDetail.png" align="left" height=auto width="270px" ></div>
 
 </div>
 <img src="images/children.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/addNewBaby.png" align="left" height=auto width="270px" >&nbsp;&nbsp;<img src="images/childDetail.png" align="left" height=auto width="270px" >
